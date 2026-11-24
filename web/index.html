@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vluchtdeals: goedkope vliegtickets vanaf Amsterdam, Eindhoven, Brussel en Düsseldorf</title>
+<meta name="description" content="Vluchtdeals zoekt elke dag naar vliegtickets die flink goedkoper zijn dan normaal, vanaf Amsterdam, Eindhoven, Brussel en Düsseldorf. Gratis op Telegram, Instagram en TikTok.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23FFCC00'/><text x='50' y='70' font-size='62' text-anchor='middle'>✈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#CFE6FF; --sky-deep:#A9D2FF; --slate:#1E2A38; --slate-2:#2A3848;
+  --sign:#FFCC00; --ink:#0E1E33; --white:#FFFFFF; --muted:#8A9AAE;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;color:var(--ink);background:var(--sky);line-height:1.55;font-size:18px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* top bar */
+.bar{display:flex;align-items:center;justify-content:space-between;padding-block:22px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;font-size:1.25rem;font-variation-settings:"wdth" 112}
+.pict{display:inline-grid;place-items:center;width:40px;height:40px;background:var(--sign);color:var(--ink);border-radius:6px;font-size:22px;line-height:1}
+.bar nav a{text-decoration:none;margin-left:22px;font-size:.95rem;font-weight:500}
+.bar nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{padding-block:48px 40px}
+.hero h1{margin:0;font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(2.6rem,7.4vw,6.2rem);line-height:.92;letter-spacing:-.02em;max-width:11ch}
+.hero p{max-width:34em;font-size:1.2rem;margin:26px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem}
+.btn-main{background:var(--ink);color:var(--white)}
+.btn-main:hover{background:var(--slate-2)}
+.btn-line{border:2px solid var(--ink)}
+.btn-line:hover{background:var(--sky-deep)}
+
+/* departure board */
+.board{margin:56px 0 0;background:var(--slate);color:var(--white);border-radius:14px;padding:26px 26px 18px;box-shadow:0 30px 60px -30px rgba(14,30,51,.55)}
+.board-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.board-title{display:flex;align-items:center;gap:14px;font-weight:800;font-size:1.6rem;font-variation-settings:"wdth" 112}
+.board-title .pict{transform:rotate(-45deg);border-radius:6px}
+.board-title .pict span{transform:rotate(45deg)}
+.board-note{color:var(--muted);font-size:.92rem}
+table{width:100%;border-collapse:collapse;font-variation-settings:"wdth" 75}
+th{text-align:left;font-weight:500;color:var(--muted);font-size:.85rem;padding:8px 10px;border-bottom:1px solid #3A4A5C}
+td{padding:12px 10px;border-bottom:1px solid #2F3D4E;font-size:1.25rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+td.dest{color:var(--sign)}
+td.price{color:var(--white);font-weight:800}
+td.was{color:var(--muted);text-decoration:line-through;font-weight:500}
+td.save{text-align:right}
+.tag{display:inline-block;background:var(--sign);color:var(--ink);padding:2px 8px;border-radius:4px;font-size:1rem;letter-spacing:0}
+.flip td{animation:flip .5s cubic-bezier(.3,.7,.3,1) both}
+@keyframes flip{from{opacity:0;transform:rotateX(90deg)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.flip td{animation:none}}
+
+/* steps */
+.steps{padding-block:96px 40px}
+.steps h2,.airports h2,.social h2{font-weight:900;font-variation-settings:"wdth" 118;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.05;margin:0 0 30px;letter-spacing:-.01em}
+.step-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+.step-list li{counter-increment:s;border-top:3px solid var(--ink);padding-top:16px}
+.step-list li::before{content:counter(s);display:block;font-weight:900;font-size:2.4rem;font-variation-settings:"wdth" 125;line-height:1;margin-bottom:10px}
+.step-list h3{margin:0 0 6px;font-size:1.15rem}
+.step-list p{margin:0;max-width:30ch}
+
+/* airports */
+.airports{padding-block:64px 30px}
+.gates{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gate{background:var(--sign);border-radius:8px;padding:18px 18px 16px}
+.gate b{display:block;font-weight:900;font-size:2.6rem;line-height:1;font-variation-settings:"wdth" 125}
+.gate span{font-weight:500}
+
+/* social / about */
+.social{padding-block:80px 90px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.social p{margin:0 0 16px;max-width:36em}
+.channels{display:grid;gap:12px}
+.channel{display:flex;justify-content:space-between;align-items:center;background:var(--white);border-radius:10px;padding:18px 20px;text-decoration:none;font-weight:700}
+.channel small{font-weight:500;color:#4B5D74;font-size:.9rem}
+.channel:hover{background:#F2F8FF}
+
+/* english + footer */
+.en{background:var(--white);padding:56px 0}
+.en h2{margin:0 0 12px;font-size:1.4rem;font-variation-settings:"wdth" 112}
+.en p{max-width:46em;margin:0 0 12px;font-size:1rem}
+footer{background:var(--slate);color:#C9D3DF;padding:34px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--white)}
+footer nav a{margin-right:18px}
+
+@media(max-width:800px){
+  body{font-size:17px}
+  .bar nav a:not(:last-child){display:none}
+  .step-list,.social{grid-template-columns:1fr}
+  .gates{grid-template-columns:repeat(2,1fr)}
+  th.hide,td.hide{display:none}
+  td{font-size:1.05rem;padding:10px 6px}
+  .board{padding:20px 14px 12px}
+}
+</style>
+</head>
+<body>
+<header class="wrap bar">
+  <a class="brand" href="/"><span class="pict" aria-hidden="true">✈</span>Vluchtdeals</a>
+  <nav><a href="#zo-werkt-het">Zo werkt het</a><a href="#volgen">Volgen</a><a href="mailto:info@vluchtdeals.com">Contact</a></nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <h1>Vliegen voor minder dan normaal.</h1>
+    <p>Elke dag zoeken we naar vliegtickets die flink goedkoper zijn dan wat dezelfde vlucht meestal kost. Vanaf Amsterdam, Eindhoven, Brussel en Düsseldorf. Jij krijgt de deal gratis, boeken doe je zelf.</p>
+    <div class="cta">
+      <a class="btn btn-main" href="https://t.me/vluchtdeals_nl">Volg de deals op Telegram</a>
+      <a class="btn btn-line" href="https://www.instagram.com/vluchtdeals/">Instagram</a>
+    </div>
+
+    <div class="board" role="region" aria-label="Deals die we onlangs deelden">
+      <div class="board-head">
+        <div class="board-title"><span class="pict" aria-hidden="true"><span>✈</span></span>Onlangs gedeeld</div>
+        <div class="board-note">Gevonden tussen 21 en 24 november 2026. Prijzen veranderen snel.</div>
+      </div>
+      <table class="flip">
+        <thead><tr><th>Bestemming</th><th class="hide">Vanaf</th><th>Prijs vanaf</th><th class="hide">Meestal</th><th class="save">Korting</th></tr></thead>
+        <tbody>
+          <tr><td class="dest">Athene</td><td class="hide">Eindhoven</td><td class="price">€110</td><td class="was hide">€286</td><td class="save"><span class="tag">−62%</span></td></tr>
+          <tr><td class="dest">Hurghada</td><td class="hide">Amsterdam</td><td class="price">€97</td><td class="was hide">€238</td><td class="save"><span class="tag">−59%</span></td></tr>
+          <tr><td class="dest">Brindisi</td><td class="hide">Brussel</td><td class="price">€59</td><td class="was hide">€214</td><td class="save"><span class="tag">−72%</span></td></tr>
+          <tr><td class="dest">Pisa</td><td class="hide">Eindhoven</td><td class="price">€44</td><td class="was hide">€96</td><td class="save"><span class="tag">−54%</span></td></tr>
+          <tr><td class="dest">Fuerteventura</td><td class="hide">Düsseldorf</td><td class="price">€68</td><td class="was hide">€123</td><td class="save"><span class="tag">−45%</span></td></tr>
+          <tr><td class="dest">Seoul</td><td class="hide">Brussel</td><td class="price">€512</td><td class="was hide">€725</td><td class="save"><span class="tag">−29%</span></td></tr>
+          <tr><td class="dest">Bonaire</td><td class="hide">Amsterdam</td><td class="price">€731</td><td class="was hide">€971</td><td class="save"><span class="tag">−25%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap steps" id="zo-werkt-het">
+    <h2>Zo werkt het</h2>
+    <ol class="step-list">
+      <li><h3>We houden de prijzen bij</h3><p>Ons systeem volgt elke dag de prijzen van honderden routes en onthoudt wat ze normaal kosten.</p></li>
+      <li><h3>Alleen echte dalingen</h3><p>Is een vlucht ineens veel goedkoper dan normaal, vaak 30% of meer? Dan is het een deal.</p></li>
+      <li><h3>Jij krijgt een seintje</h3><p>De beste deals staan meteen op Telegram, Instagram en TikTok. Je boekt rechtstreeks bij de aanbieder.</p></li>
+    </ol>
+  </section>
+
+  <section class="wrap airports">
+    <h2>Vanaf vier luchthavens</h2>
+    <div class="gates">
+      <div class="gate"><b>AMS</b><span>Amsterdam Schiphol</span></div>
+      <div class="gate"><b>EIN</b><span>Eindhoven</span></div>
+      <div class="gate"><b>BRU</b><span>Brussel</span></div>
+      <div class="gate"><b>DUS</b><span>Düsseldorf</span></div>
+    </div>
+  </section>
+
+  <section class="wrap social" id="volgen">
+    <div>
+      <h2>Volg mee, mis niks</h2>
+      <p>Goede deals zijn vaak binnen een dag weg. Op Telegram krijg je ze als eerste, op Instagram en TikTok zie je de mooiste bestemmingen.</p>
+      <p>Vluchtdeals verkoopt zelf geen tickets. Sommige links zijn affiliate-links: boek je via zo'n link, dan krijgen wij een kleine vergoeding. Jij betaalt niets extra.</p>
+    </div>
+    <div class="channels">
+      <a class="channel" href="https://t.me/vluchtdeals_nl">Telegram <small>@vluchtdeals_nl</small></a>
+      <a class="channel" href="https://www.instagram.com/vluchtdeals/">Instagram <small>@vluchtdeals</small></a>
+      <a class="channel" href="https://www.tiktok.com/@vluchtdeals_nl">TikTok <small>@vluchtdeals_nl</small></a>
+    </div>
+  </section>
+
+  <section class="en" lang="en">
+    <div class="wrap">
+      <h2>About Vluchtdeals</h2>
+      <p>Vluchtdeals is a Dutch service that finds unusually cheap flights from Amsterdam, Eindhoven, Brussels and Düsseldorf and shares them for free on Telegram, Instagram and TikTok. We do not sell tickets; travellers book directly with the airline or travel provider.</p>
+      <p>We create our own short videos and photo posts about these deals and publish them to our own Instagram and TikTok accounts through the platforms' official APIs, including TikTok Login Kit and the Content Posting API. These integrations are used only to publish our own content to our own accounts. We do not collect data about other users. Read our <a href="/privacy.html#en">Privacy Policy</a> and <a href="/voorwaarden.html#en">Terms of Service</a>, or email <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Vluchtdeals is een initiatief van ProTrading, KvK 95302271.<br><a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a></div>
+    <nav><a href="/privacy.html">Privacybeleid</a><a href="/voorwaarden.html">Algemene voorwaarden</a></nav>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.flip tbody tr').forEach(function(tr,i){
+  tr.querySelectorAll('td').forEach(function(td,j){td.style.animationDelay=(0.25+i*0.09+j*0.04)+'s'});
+});
+</script>
+</body>
+</html>
