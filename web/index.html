@@ -144,6 +144,7 @@ footer nav a{color:var(--soft)}
     <div class="toplinks">
       <span class="hide-s">EUR</span><span class="hide-s">NL</span>
       <a href="#zo-werkt-het">Hoe werkt het?</a>
+      <a class="hide-s" href="/help.html">Help</a>
       <a class="btn btn-sun" href="#dealmail">Gratis dealmail</a>
     </div>
   </div>
@@ -236,9 +237,11 @@ footer nav a{color:var(--soft)}
   <nav aria-label="Voettekst">
     <a href="https://www.instagram.com/vluchtdeals/">Instagram</a>
     <a href="https://www.tiktok.com/@vluchtdeals_nl">TikTok</a>
+    <a href="/help.html">Help &amp; FAQ</a>
+    <a href="/over-ons.html">Over ons</a>
+    <a href="/contact.html">Contact</a>
     <a href="/privacy.html">Privacybeleid</a>
     <a href="/voorwaarden.html">Algemene voorwaarden</a>
-    <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>
   </nav>
 </div></footer>
 
@@ -287,9 +290,9 @@ function card(d,cls){var keep=Math.max(5,100-d.pct);
   '<div class="perf" aria-hidden="true"></div>'+
   '<div class="t-bottom"><small>'+(d.stops===0?'Directe vlucht':(d.stops===1?'1 overstap':'Prijzen veranderen snel'))+'</small>'+
   '<a class="btn btn-ink" href="'+esc(dealUrl(d))+'" rel="sponsored noopener" target="_blank">Bekijk deal →</a></div></article>'}
-function renderDeals(){var list=state.deals.filter(function(d){return state.airport==='ALLE'||d.from===state.airport});
+function renderDeals(){var list=state.deals.filter(function(d){return state.airport==='ALLE'||(d.group||d.from)===state.airport});
   $('grid').innerHTML=list.length?list.map(function(d){return card(d)}).join(''):'<p class="empty">Vandaag geen deals vanaf deze luchthaven. Kijk morgen weer, of zoek zelf hierboven.</p>';
-  var origins=['ALLE'];state.deals.forEach(function(d){if(origins.indexOf(d.from)<0)origins.push(d.from)});
+  var origins=['ALLE'];state.deals.forEach(function(d){var g=d.group||d.from;if(origins.indexOf(g)<0)origins.push(g)});
   $('filters').innerHTML=origins.map(function(a){return '<button type="button" aria-pressed="'+(a===state.airport)+'" data-a="'+a+'">'+(a==='ALLE'?'Alle':a)+'</button>'}).join('');
   $('filters').querySelectorAll('button').forEach(function(b){b.onclick=function(){state.airport=b.getAttribute('data-a');renderDeals()}})}
 function renderHero(){var best=state.deals.slice().sort(function(a,b){return b.pct-a.pct})[0];if(!best)return;
