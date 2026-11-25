@@ -148,6 +148,7 @@ footer nav a{color:var(--soft)}
     <a class="brand" href="/"><img src="/logo.png" alt=""><span>Vluchtdeals</span></a>
     <div class="toplinks">
       <span class="hide-s">EUR</span><span class="hide-s">NL</span>
+      <a class="hide-s" href="/bestemmingen/">Bestemmingen</a>
       <a href="#zo-werkt-het">Hoe werkt het?</a>
       <a class="hide-s" href="/help.html">Help</a>
       <a class="btn btn-sun" href="#dealmail">Gratis dealmail</a>
@@ -213,6 +214,7 @@ footer nav a{color:var(--soft)}
     <h2 class="disp" style="margin:10px 0 0;font-size:clamp(34px,4.5vw,56px);line-height:1">Waar wil je heen?</h2>
     <p class="lead">Kies een bestemming en zie direct alle vluchten en prijzen.</p>
     <div class="dgrid" id="dgrid"></div>
+    <p style="margin:28px 0 0"><a href="/bestemmingen/" style="font-weight:700">Alle bestemmingen →</a></p>
   </section>
 
   <section class="steps" id="zo-werkt-het"><div class="wrap">
@@ -245,6 +247,7 @@ footer nav a{color:var(--soft)}
   <nav aria-label="Voettekst">
     <a href="https://www.instagram.com/vluchtdeals/">Instagram</a>
     <a href="https://www.tiktok.com/@vluchtdeals_nl">TikTok</a>
+    <a href="/bestemmingen/">Bestemmingen</a>
     <a href="/help.html">Help &amp; FAQ</a>
     <a href="/over-ons.html">Over ons</a>
     <a href="/contact.html">Contact</a>
@@ -308,9 +311,10 @@ function renderHero(){var best=state.deals.slice().sort(function(a,b){return b.p
   $('hero-card').insertAdjacentHTML('beforeend',card(best).replace('<article class="ticket ','<article style="--hole:transparent" class="ticket '))}
 function renderDests(){var seen={},items=[];state.deals.forEach(function(d){if(!seen[d.to]){seen[d.to]=1;items.push([d.to,d.city])}});
   [['BCN','Barcelona'],['LIS','Lissabon'],['ROM','Rome'],['ATH','Athene'],['IST','Istanbul'],['TFS','Tenerife'],['RAK','Marrakech'],['NYC','New York']].forEach(function(x){if(!seen[x[0]]&&items.length<8){seen[x[0]]=1;items.push(x)}});
-  $('dgrid').innerHTML=items.slice(0,8).map(function(x,i){return '<a class="dtile c'+(i%4)+'" href="'+SEARCH+'/flights/?'+new URLSearchParams({destination_iata:x[0],locale:'nl',currency:'eur'})+'"><b>'+esc(x[0])+'</b><span><span>'+esc(x[1])+'</span><span aria-hidden="true">→</span></span></a>'}).join('')}
+  $('dgrid').innerHTML=items.slice(0,8).map(function(x,i){var sl=state.slugs&&state.slugs[x[0]];return '<a class="dtile c'+(i%4)+'" href="'+(sl?'/bestemming/'+sl+'/':SEARCH+'/flights/?'+new URLSearchParams({destination_iata:x[0],locale:'nl',currency:'eur'}))+'"><b>'+esc(x[0])+'</b><span><span>'+esc(x[1])+'</span><span aria-hidden="true">→</span></span></a>'}).join('')}
 function use(data){state.deals=(data&&data.deals&&data.deals.length)?data.deals:FALLBACK.deals;
   $('deals-label').textContent='GEVONDEN '+String((data&&data.label)||FALLBACK.label).toUpperCase();renderDeals();renderHero();renderDests()}
+fetch('/bestemmingen.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){state.slugs=j;if(state.deals&&state.deals.length)renderDests()}}).catch(function(){});
 fetch('/deals.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(use).catch(function(){use(null)});
 // dealmail: inschrijven via Brevo (dubbele bevestiging per mail)
 (function(){var f=$('mailform'),msg=$('mailmsg'),btn=$('mailbtn');
