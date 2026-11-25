@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /bevestigd.html
+
+Sitemap: https://vluchtdeals.com/sitemap.xml
