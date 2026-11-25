@@ -121,6 +121,11 @@ header.top{border-bottom:1px solid var(--line)}
 .mailform label{flex:1 1 240px;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700}
 .mailform input{min-height:52px;border:2px solid var(--ink);border-radius:14px;padding:0 16px;font:500 17px Inter,sans-serif;color:var(--ink);background:#fff}
 .mailform button{align-self:flex-end;min-height:52px;border-radius:14px}
+.mailform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.mailnote{flex:1 1 100%;margin:4px 0 0;font-size:14px;color:#3B2A05}
+.mailnote a{color:var(--ink)}
+.mailnote.ok{font-size:17px;font-weight:700;color:var(--ink)}
+.mailnote.err{font-weight:700;color:#8A1C00}
 /* footer */
 footer{border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-top:40px;padding-bottom:56px}
@@ -219,9 +224,12 @@ footer nav a{color:var(--soft)}
   <section class="wrap mail" id="dealmail">
     <div class="mailbox">
       <div><h2 class="disp">De beste deals in je mail</h2><p>Mis geen deal meer vanaf jouw luchthaven. Gratis, en je kunt je altijd afmelden.</p></div>
-      <form class="mailform" id="mailform" aria-label="Inschrijven voor dealmail">
-        <label>Je e-mailadres<input type="email" id="mail" placeholder="naam@voorbeeld.nl" required></label>
-        <button class="btn btn-ink" type="submit">Inschrijven</button>
+      <form class="mailform" id="mailform" method="POST" action="https://1c7629f4.sibforms.com/serve/MUIFAJDVpPzZY7q7nACS9LQittjAOInvucvYArBqLAaLMEcBctk-iv8MdTpyYZX8zMlCqw8taGI2a-jegOV7Wi5Zq7JZkzIobIbbKArdNyO1OqG5dEABZ7ko0MGQ_cn-_nCNvzG_ZHTMOHH0VCqJ0hEQ6Cybsd3ziK3ggzHyzfUGfKcrREa8rpbTTVvVX8RVDcwyFCSnP5jQT-UeEA" aria-label="Inschrijven voor dealmail">
+        <label>Je e-mailadres<input type="email" id="mail" name="EMAIL" autocomplete="email" placeholder="naam@voorbeeld.nl" required></label>
+        <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+        <input type="hidden" name="locale" value="nl"><input type="hidden" name="html_type" value="simple">
+        <button class="btn btn-ink" type="submit" id="mailbtn">Inschrijven</button>
+        <p class="mailnote" id="mailmsg" role="status" aria-live="polite">Eén mail per week met de beste deals. Je krijgt eerst een mail om je inschrijving te bevestigen. Afmelden kan altijd. Lees ons <a href="/privacy.html#dealmail">privacybeleid</a>.</p>
       </form>
     </div>
   </section>
@@ -304,9 +312,15 @@ function renderDests(){var seen={},items=[];state.deals.forEach(function(d){if(!
 function use(data){state.deals=(data&&data.deals&&data.deals.length)?data.deals:FALLBACK.deals;
   $('deals-label').textContent='GEVONDEN '+String((data&&data.label)||FALLBACK.label).toUpperCase();renderDeals();renderHero();renderDests()}
 fetch('/deals.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(use).catch(function(){use(null)});
-// dealmail: tot de maildienst gekozen is, via e-mail
-$('mailform').onsubmit=function(e){e.preventDefault();var m=$('mail').value.trim();if(!m||!$('mail').checkValidity()){$('mail').reportValidity();return}
-  window.location.href='mailto:info@vluchtdeals.com?subject='+encodeURIComponent('Aanmelding dealmail')+'&body='+encodeURIComponent('Graag aanmelden voor de dealmail met: '+m)};
+// dealmail: inschrijven via Brevo (dubbele bevestiging per mail)
+(function(){var f=$('mailform'),msg=$('mailmsg'),btn=$('mailbtn');
+  function say(t,c){msg.textContent=t;msg.className='mailnote '+(c||'')}
+  f.onsubmit=function(e){var m=$('mail');if(!m.value.trim()||!m.checkValidity()){e.preventDefault();m.reportValidity();return}
+    if(!window.fetch||!window.FormData)return;e.preventDefault();btn.disabled=true;btn.textContent='Bezig…';
+    fetch(f.action+'?isAjax=1',{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
+      if(j&&j.success){say('Bijna klaar! Check je mail en klik op de link om je inschrijving te bevestigen.','ok');m.value='';btn.textContent='Ingeschreven'}
+      else{say('Dat lukte niet. Controleer je e-mailadres en probeer het opnieuw.','err');btn.disabled=false;btn.textContent='Inschrijven'}
+    }).catch(function(){f.onsubmit=null;f.submit()})}})();
 })();
 </script>
 </body>
