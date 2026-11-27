@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0B1028">
 <link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/vd.css?v=6">
+<link rel="stylesheet" href="/assets/vd.css?v=7">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.55 Inter,system-ui,sans-serif}
@@ -274,7 +274,7 @@ a.rt:hover{border-color:var(--sun)}
     <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
   </div>
 </footer>
-<script src="/assets/vd.js?v=6" defer></script>
+<script src="/assets/vd.js?v=7" defer></script>
 <script>
 (function(){
 var SEARCH='https://zoeken.vluchtdeals.com';
@@ -292,7 +292,7 @@ $('sform').onsubmit=function(e){e.preventDefault();
   if(!o){$('f-from').setCustomValidity('Kies een vertrekluchthaven uit de lijst');$('f-from').reportValidity();return}
   var p=new URLSearchParams({origin_iata:o,adults:$('f-pax').value,children:'0',infants:'0',trip_class:'0',locale:'nl',currency:'eur'});
   if(d)p.set('destination_iata',d);if(dep)p.set('depart_date',dep);if(ret&&!one)p.set('return_date',ret);if(o&&d&&dep)p.set('with_request','true');
-  window.location.href=SEARCH+'/flights/?'+p.toString();
+  var u=SEARCH+'/flights/?'+p.toString();if(window.vdZoek)window.vdZoek(u);else window.location.href=u;
 };
 $('f-from').oninput=function(){this.setCustomValidity('')};
 // deals

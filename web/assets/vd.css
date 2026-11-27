@@ -84,6 +84,15 @@
 .vd-modal .btns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
 .vd-modal .btns .vd-btn{min-width:0}
 
+.vd-gate .box{max-width:460px;border-top:5px solid var(--sun)}
+.vd-gate h2{font-size:24px}
+.vd-gate p{margin:0 0 10px}
+.vd-gate p.sm{font-size:13.5px;color:#5B6385}
+.vd-gate a{color:#0B4FA8}
+.vd-gate .btns{grid-template-columns:1fr 1fr;margin-top:16px}
+.vd-gate a.vd-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink)}
+.vd-btn:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
 @media (max-width:900px){
  .vd-foot .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -107,6 +116,11 @@
  .vd-cookie .btns .vd-btn{min-width:0}
  .vd-cookie .btns .set{grid-column:1/-1;order:3;border:0;text-decoration:underline;min-height:44px}
  .vd-modal .btns{grid-template-columns:1fr}
+ .vd-gate{align-items:flex-end;padding:0}
+ .vd-gate .box{max-width:none;border-radius:24px 24px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom))}
+ .vd-gate h2{font-size:22px}
+ .vd-gate .btns{grid-template-columns:1fr}
+ .vd-gate .btns .dark{order:-1}
 }
 
 /* datumvelden: niet uitsteken op iPhone, nette 'Kies datum' */

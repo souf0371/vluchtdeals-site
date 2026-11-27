@@ -55,11 +55,15 @@
       if (v && v.t && (Date.now() - v.t) < MAXDAYS * 864e5) return v; } catch (e) {}
     return null;
   }
-  function save(stats, ads) {
-    var v = { v: 1, stats: !!stats, ads: !!ads, t: Date.now() };
+  // zoek: toestemming voor de zoekmachine van onze partner (zoeken.vluchtdeals.com). undefined = huidige keuze houden.
+  function save(stats, ads, zoek) {
+    var old = read() || {};
+    if (zoek === undefined) zoek = !!old.zoek;
+    var v = { v: 2, stats: !!stats, ads: !!ads, zoek: !!zoek, t: Date.now() };
     try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
     apply(v); hideBanner();
     if (!v.stats) clearCookies(/^_ga/);
+    if (!v.zoek) clearCookies(/^_sp_/);   // meetcookies (Snowplow) die de zoekmachine op .vluchtdeals.com kan zetten
   }
   function clearCookies(re) {
     d.cookie.split(';').forEach(function (c) {
@@ -96,20 +100,21 @@
       '<button type="button" class="vd-btn dark" data-c="yes">Accepteren</button></div></div>';
     banner.addEventListener('click', function (e) {
       var c = e.target.getAttribute && e.target.getAttribute('data-c');
-      if (c === 'no') save(false, false); else if (c === 'yes') save(true, true); else if (c === 'set') openSettings();
+      if (c === 'no') save(false, false, false); else if (c === 'yes') save(true, true); else if (c === 'set') openSettings();
     });
     d.body.appendChild(banner);
   }
 
   // ---------- instellingen ----------
   function openSettings() {
-    var cur = read() || { stats: false, ads: false };
+    var cur = read() || { stats: false, ads: false, zoek: false };
     var m = d.createElement('div'); m.className = 'vd-modal'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-labelledby', 'vd-ps-t');
-    var off = needed ? '' : '<p style="margin:10px 0 0;padding:12px 14px;border-radius:12px;background:#EEF1F8">Op dit moment gebruiken we geen meet- of advertentiecookies. Je keuze wordt wel bewaard voor als dat verandert.</p>';
+    var off = needed ? '' : '<p style="margin:10px 0 0;padding:12px 14px;border-radius:12px;background:#EEF1F8">Op vluchtdeals.com zelf gebruiken we op dit moment geen meet- of advertentiecookies. Je keuze wordt wel bewaard voor als dat verandert.</p>';
     m.innerHTML = '<div class="box"><h2 id="vd-ps-t">Privacy-instellingen</h2><p style="margin:0">Kies welke cookies je toestaat. Je kunt dit altijd aanpassen via ‘Privacy-instellingen’ onderaan elke pagina.</p>' + off +
       '<div class="row"><div><b>Noodzakelijk</b><p>Nodig om de site te laten werken en je keuze te onthouden. Altijd aan.</p></div><label class="vd-sw"><input type="checkbox" checked disabled aria-label="Noodzakelijk, altijd aan"><span></span></label></div>' +
       '<div class="row"><div><b>Statistieken</b><p>Meten hoe bezoekers de site gebruiken (Google Analytics), zodat we hem kunnen verbeteren.</p></div><label class="vd-sw"><input type="checkbox" id="vd-c-stats" aria-label="Statistieken"' + (cur.stats ? ' checked' : '') + '><span></span></label></div>' +
       '<div class="row"><div><b>Marketing</b><p>Meten of onze advertenties werken. Nu niet in gebruik.</p></div><label class="vd-sw"><input type="checkbox" id="vd-c-ads" aria-label="Marketing"' + (cur.ads ? ' checked' : '') + '><span></span></label></div>' +
+      '<div class="row"><div><b>Zoekmachine van onze partner</b><p>De zoekmachine op zoeken.vluchtdeals.com komt van onze partner Travelpayouts en plaatst meetcookies. Uit: we vragen het opnieuw als je wilt zoeken.</p></div><label class="vd-sw"><input type="checkbox" id="vd-c-zoek" aria-label="Zoekmachine van onze partner"' + (cur.zoek ? ' checked' : '') + '><span></span></label></div>' +
       '<p style="margin:14px 0 0;font-size:14px;color:#4A5275">Bezoekers tellen we ook zonder cookies (Cloudflare Web Analytics). Meer in de <a href="/cookies" style="color:#0B4FA8">cookieverklaring</a>.</p>' +
       '<div class="btns"><button type="button" class="vd-btn" data-m="no">Alles weigeren</button><button type="button" class="vd-btn" data-m="save">Keuze opslaan</button><button type="button" class="vd-btn dark" data-m="yes">Alles accepteren</button></div></div>';
     function close() { m.remove(); d.removeEventListener('keydown', esc); }
@@ -117,14 +122,77 @@
     m.addEventListener('click', function (e) {
       if (e.target === m) return close();
       var a = e.target.getAttribute && e.target.getAttribute('data-m');
-      if (a === 'no') { save(false, false); close(); }
-      else if (a === 'yes') { save(true, true); close(); }
-      else if (a === 'save') { save(d.getElementById('vd-c-stats').checked, d.getElementById('vd-c-ads').checked); close(); }
+      if (a === 'no') { save(false, false, false); close(); }
+      else if (a === 'yes') { save(true, true, true); close(); }
+      else if (a === 'save') { save(d.getElementById('vd-c-stats').checked, d.getElementById('vd-c-ads').checked, d.getElementById('vd-c-zoek').checked); close(); }
     });
     d.addEventListener('keydown', esc);
     d.body.appendChild(m);
     var f = m.querySelector('#vd-c-stats'); if (f) f.focus();
   }
+  // ---------- toestemming vóór de zoekmachine (zoeken.vluchtdeals.com) ----------
+  // De zoekmachine van onze partner start meteen meetcookies en heeft zelf geen 'weigeren'. Daarom vragen we het hier,
+  // vóórdat iemand erheen gaat. 'Akkoord' wordt bewaard (vd_consent.zoek); 'Liever niet' niet, dan vragen we het de volgende keer weer.
+  var ZOEKHOST = 'zoeken.vluchtdeals.com';
+  function isZoek(url) { try { return new URL(url, location.href).hostname === ZOEKHOST; } catch (e) { return false; } }
+  function naarZoek(url, nieuw) {
+    if (nieuw) { var w = window.open(url, '_blank'); if (w) { try { w.opener = null; } catch (e) {} } else location.href = url; }   // 'noopener' geeft altijd null terug, dus zelf loskoppelen
+    else location.href = url;
+  }
+  var gate = null;
+  function zoekVraag(url, nieuw) {
+    var v = read();
+    if (v && v.zoek) return naarZoek(url, nieuw);
+    if (gate) gate.remove();
+    var back = d.activeElement;
+    var m = d.createElement('div'); m.className = 'vd-modal vd-gate'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true');
+    m.setAttribute('aria-labelledby', 'vd-zg-t'); m.setAttribute('aria-describedby', 'vd-zg-p');
+    m.innerHTML = '<div class="box"><h2 id="vd-zg-t">Even checken voor je zoekt</h2>' +
+      '<p id="vd-zg-p">Je gaat naar de zoekmachine van onze reispartner. Die plaatst meetcookies om te zien hoe er gezocht wordt. Daar hebben wij geen invloed op.</p>' +
+      '<p class="sm">We bewaren je keuze op dit apparaat. Wijzigen kan altijd via ‘Privacy-instellingen’ onderaan de pagina. Meer in de <a href="/cookies">cookieverklaring</a>.</p>' +
+      '<div class="btns"><button type="button" class="vd-btn" data-z="no">Liever niet</button><button type="button" class="vd-btn dark" data-z="yes">Akkoord, zoeken</button></div></div>';
+    function close() { m.remove(); gate = null; d.removeEventListener('keydown', esc); if (back && back.focus) try { back.focus(); } catch (e) {} }
+    function esc(e) { if (e.key === 'Escape') close(); }
+    m.addEventListener('click', function (e) {
+      if (e.target === m) return close();
+      var z = e.target.getAttribute && e.target.getAttribute('data-z');
+      if (z === 'yes') { var c = read() || {}; save(!!c.stats, !!c.ads, true); close(); naarZoek(url, nieuw); }
+      else if (z === 'no') {
+        m.querySelector('.box').innerHTML = '<h2 id="vd-zg-t">Geen probleem</h2>' +
+          '<p id="vd-zg-p">Zonder de zoekmachine kun je nog steeds de deals van vandaag bekijken en je aanmelden voor de gratis dealmail.</p>' +
+          '<div class="btns"><button type="button" class="vd-btn" data-z="close">Sluiten</button><a class="vd-btn" href="/#dealmail" data-z="mail">Naar de dealmail</a></div>';
+        var b = m.querySelector('[data-z=close]'); if (b) b.focus();
+      }
+      else if (z === 'close' || z === 'mail') close();
+    });
+    d.addEventListener('keydown', esc);
+    d.body.appendChild(m); gate = m;
+    var f = m.querySelector('[data-z=yes]'); if (f) f.focus();
+  }
+  window.vdZoek = function (url, nieuw) { zoekVraag(url, !!nieuw); };
+  // alle links naar de zoekmachine (deals, bestemmingen, tegels), ook links die later worden toegevoegd
+  d.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0) return;
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a || !isZoek(a.href)) return;
+    var v = read(); if (v && v.zoek) return;          // al akkoord: link werkt gewoon
+    e.preventDefault();
+    zoekVraag(a.href, a.target === '_blank' || e.metaKey || e.ctrlKey);
+  }, true);
+  d.addEventListener('auxclick', function (e) {      // middelste muisknop (nieuw tabblad)
+    if (e.button !== 1) return;
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a || !isZoek(a.href)) return;
+    var v = read(); if (v && v.zoek) return;
+    e.preventDefault(); zoekVraag(a.href, true);
+  }, true);
+  // formulieren die naar de zoekmachine gaan (bestemmingspagina's)
+  d.addEventListener('submit', function (e) {
+    var f = e.target; if (!f || !f.action || !isZoek(f.action) || (f.method || 'get').toLowerCase() !== 'get') return;
+    var v = read(); if (v && v.zoek) return;
+    e.preventDefault();
+    var u = new URL(f.action); u.search = new URLSearchParams(new FormData(f)).toString();   // zelfde adres als het formulier zelf zou maken
+    zoekVraag(u.toString(), f.target === '_blank');
+  }, true);
+
   d.querySelectorAll('[data-privacy-settings]').forEach(function (b) {
     b.addEventListener('click', function (e) { e.preventDefault(); openSettings(); });
   });
