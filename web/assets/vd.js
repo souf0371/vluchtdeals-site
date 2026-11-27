@@ -10,14 +10,26 @@
 
   // ---------- menu (telefoon) ----------
   var mb = d.querySelector('.vd-menu'), mp = d.querySelector('.vd-panel');
-  if (mb && mp) mb.addEventListener('click', function () {
-    var open = mp.classList.toggle('open'); mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  function menu(open) { if (!mb || !mp) return; mp.classList.toggle('open', open); mb.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  if (mb && mp) {
+    mb.addEventListener('click', function () { menu(!mp.classList.contains('open')); });
+    mp.addEventListener('click', function (e) { if (e.target.closest('a')) menu(false); });   // link gekozen → menu dicht
+    d.addEventListener('keydown', function (e) { if (e.key === 'Escape') menu(false); });
+    d.addEventListener('click', function (e) { if (mp.classList.contains('open') && !e.target.closest('.vd-head')) menu(false); });
+    window.addEventListener('hashchange', function () { menu(false); });
+  }
+
+  // ---------- datumvelden: 'Kies datum' tonen zolang er niets gekozen is ----------
+  if (!/Firefox\//.test(navigator.userAgent)) d.documentElement.classList.add('dph');
+  d.querySelectorAll('.dwrap input[type=date]').forEach(function (i) {
+    function upd() { i.parentNode.classList.toggle('has', !!i.value); }
+    i.addEventListener('input', upd); i.addEventListener('change', upd); upd();
   });
 
   // ---------- voettekst: op computer altijd open, op telefoon uitklapbaar ----------
   var mq = window.matchMedia('(min-width: 721px)');
   function feet() { d.querySelectorAll('.vd-foot details').forEach(function (x) { if (mq.matches) x.open = true; }); }
-  feet(); if (mq.addEventListener) mq.addEventListener('change', feet);
+  feet(); if (mq.addEventListener) mq.addEventListener('change', function () { feet(); if (mq.matches) menu(false); });
   d.querySelectorAll('.vd-foot details summary').forEach(function (s) {
     s.addEventListener('click', function (e) { if (mq.matches) e.preventDefault(); });
   });

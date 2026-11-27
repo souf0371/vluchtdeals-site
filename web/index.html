@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0B1028">
 <link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/vd.css?v=3">
+<link rel="stylesheet" href="/assets/vd.css?v=4">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.55 Inter,system-ui,sans-serif}
@@ -23,7 +23,7 @@ a{color:var(--sun)}a:hover{color:var(--sun2)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .k{font:700 13px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sun);text-transform:uppercase}
 .h2{margin:8px 0 0;font:800 clamp(30px,4vw,48px)/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
-section{scroll-margin-top:90px}
+section{scroll-margin-top:84px}
 /* hero */
 .hero{padding-top:52px;padding-bottom:36px;display:flex;flex-direction:column;gap:22px}
 .hero h1{margin:6px 0 0;font:800 clamp(40px,6vw,76px)/.98 "Bricolage Grotesque",sans-serif;letter-spacing:-.035em;max-width:900px}
@@ -182,8 +182,8 @@ a.rt:hover{border-color:var(--sun)}
     </div>
   </div>
   <nav class="vd-panel" id="vd-panel" aria-label="Menu"><a href="/#zoeken">Vluchten zoeken</a><a href="/#deals">Deals van vandaag</a><a href="/bestemmingen/">Bestemmingen</a><a href="/#reis">Maak je reis compleet</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></nav>
-  <nav class="vd-tabs" aria-label="Wat zoek je?"><a href="/#zoeken" aria-current="page">Vluchten</a><a href="/#reis">Hotels <small>binnenkort</small></a><a href="/#reis">Autohuur <small>binnenkort</small></a><a href="/#reis">Activiteiten <small>binnenkort</small></a><a href="/#reis">Luchthaventaxi <small>binnenkort</small></a><a href="/#reis">eSIM <small>binnenkort</small></a><a href="/#deals">Deals</a></nav>
 </header>
+<div class="vd-tabbar"><nav class="vd-tabs" aria-label="Wat zoek je?"><a href="/#zoeken" aria-current="page">Vluchten</a><a href="/#reis">Hotels <small>binnenkort</small></a><a href="/#reis">Autohuur <small>binnenkort</small></a><a href="/#reis">Activiteiten <small>binnenkort</small></a><a href="/#reis">Luchthaventaxi <small>binnenkort</small></a><a href="/#reis">eSIM <small>binnenkort</small></a><a href="/#deals">Deals</a></nav></div>
 <main>
 <section class="wrap hero" id="zoeken" aria-labelledby="h1">
   <span class="k">Vanaf Nederland · België · Duitsland</span>
@@ -197,8 +197,8 @@ a.rt:hover{border-color:var(--sun)}
     <div class="row">
       <label class="f wide">VAN<input type="text" id="f-from" list="airports" value="Amsterdam Schiphol (AMS)" autocomplete="off" required></label>
       <label class="f wide">NAAR<input type="text" id="f-to" list="airports" placeholder="Stad of luchthaven" autocomplete="off"></label>
-      <label class="f">HEEN<input type="date" id="f-dep"></label>
-      <label class="f" id="ret-field">TERUG<input type="date" id="f-ret"></label>
+      <label class="f">HEEN<span class="dwrap"><input type="date" id="f-dep"><span class="ph">Kies datum</span></span></label>
+      <label class="f" id="ret-field">TERUG<span class="dwrap"><input type="date" id="f-ret"><span class="ph">Kies datum</span></span></label>
       <label class="f wide">REIZIGERS<select id="f-pax"><option value="1">1 volwassene</option><option value="2">2 volwassenen</option><option value="3">3 volwassenen</option><option value="4">4 volwassenen</option><option value="5">5 volwassenen</option><option value="6">6 volwassenen</option><option value="7">7 volwassenen</option><option value="8">8 volwassenen</option><option value="9">9 volwassenen</option></select></label>
       <button class="go" type="submit">Zoek vluchten</button>
     </div>
@@ -274,7 +274,7 @@ a.rt:hover{border-color:var(--sun)}
     <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
   </div>
 </footer>
-<script src="/assets/vd.js?v=3" defer></script>
+<script src="/assets/vd.js?v=4" defer></script>
 <script>
 (function(){
 var SEARCH='https://zoeken.vluchtdeals.com';

@@ -30,12 +30,13 @@
 .vd-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--sun);color:var(--ink)!important;font:700 15px Inter,sans-serif;text-decoration:none}
 .vd-cta:hover{background:var(--sun2)}
 .vd-menu{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--paper);align-items:center;justify-content:center;cursor:pointer}
-.vd-tabs{max-width:1240px;margin:0 auto;padding:0 32px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.vd-tabbar{border-bottom:1px solid var(--line)}
+.vd-tabs{max-width:1240px;margin:0 auto;padding:12px 32px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 .vd-tabs::-webkit-scrollbar{display:none}
 .vd-tabs a{flex:none;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line2);color:var(--paper);text-decoration:none;font:600 15px Inter,sans-serif}
 .vd-tabs a[aria-current]{background:var(--paper);color:var(--ink);border-color:var(--paper);font-weight:700}
 .vd-tabs a small{font:700 10px "JetBrains Mono",monospace;letter-spacing:.06em;color:var(--sun);text-transform:uppercase}
-.vd-panel{display:none;border-top:1px solid var(--line);padding:12px 20px 18px}
+.vd-panel{display:none;border-top:1px solid var(--line);padding:4px 20px 14px;max-height:calc(100vh - 72px);overflow-y:auto}
 .vd-panel a{display:block;padding:12px 0;color:var(--paper);text-decoration:none;font:600 17px Inter,sans-serif;border-bottom:1px solid var(--line)}
 .vd-panel.open{display:block}
 
@@ -90,7 +91,7 @@
  .vd-head .in{padding:12px 20px}
  .vd-head .right .l,.vd-head .right .vd-soc{display:none}
  .vd-menu{display:inline-flex}
- .vd-tabs{padding:0 20px 12px}
+ .vd-tabs{padding:10px 20px}
  .brand{font-size:22px}
  .vd-foot .cols{display:block;padding:24px 20px 8px}
  .vd-foot details{border-bottom:1px solid var(--line);padding:14px 0}
@@ -107,3 +108,13 @@
  .vd-cookie .btns .set{grid-column:1/-1;order:3;border:0;text-decoration:underline;min-height:44px}
  .vd-modal .btns{grid-template-columns:1fr}
 }
+
+/* datumvelden: niet uitsteken op iPhone, nette 'Kies datum' */
+body{overflow-x:clip}
+input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+.dwrap{position:relative;display:block;min-width:0}
+.dwrap .ph{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8A91AD;font:500 16px Inter,sans-serif;pointer-events:none}
+.dph .dwrap:not(.has) input:not(:focus)::-webkit-datetime-edit{color:transparent}
+.dwrap.has .ph,.dwrap input:focus+.ph,html:not(.dph) .dwrap .ph{display:none}
+@media (min-width:721px){.vd-panel,.vd-panel.open{display:none}}
