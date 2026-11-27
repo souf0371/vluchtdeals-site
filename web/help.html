@@ -6,14 +6,15 @@
 <title>Help & veelgestelde vragen – Vluchtdeals</title>
 <meta name="description" content="Antwoorden op veelgestelde vragen over Vluchtdeals: hoe deals werken, boeken, bagage, wijzigen en privacy.">
 <link rel="canonical" href="https://vluchtdeals.com/help.html">
-<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 <meta property="og:title" content="Help & veelgestelde vragen – Vluchtdeals">
 <meta property="og:description" content="Antwoorden op veelgestelde vragen over Vluchtdeals: hoe deals werken, boeken, bagage, wijzigen en privacy.">
 <meta property="og:image" content="https://vluchtdeals.com/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#0B1028">
+<link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/vd.css?v=3">
 <style>
 :root{--night:#0B1028;--night2:#141B3D;--line:#1C2450;--line2:#3A4270;--sun:#FFC53D;--sun2:#FFD873;--paper:#EEF1F8;--soft:#C9D0E4;--mute:#8E97B8;--ink:#0B1028}
 *{box-sizing:border-box}
@@ -22,11 +23,6 @@ a{color:var(--sun)}a:hover{color:var(--sun2)}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .narrow{max-width:800px}
-header.top{border-bottom:1px solid var(--line)}
-.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
-.brand{display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:var(--paper);font:800 27px "Bricolage Grotesque",sans-serif;letter-spacing:-.035em;line-height:1}.brand:hover{color:var(--paper)}.tk{display:inline-block;transform:rotate(-4deg);background:var(--sun);color:var(--ink);border-radius:5px;padding:2px 10px 4px 9px;-webkit-mask:radial-gradient(circle at 0 50%,transparent 4px,#000 4.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 4px,#000 4.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 50%,transparent 4px,#000 4.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 4px,#000 4.5px) right/51% 100% no-repeat}
-.toplinks{display:flex;flex-wrap:wrap;align-items:center;gap:22px;font-weight:600;font-size:15px}
-.toplinks a{color:var(--soft);text-decoration:none}.toplinks a[aria-current]{color:var(--sun)}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--sun);color:var(--ink)}
 .btn:hover{background:var(--sun2);color:var(--ink)}
 .hero{padding-top:56px;padding-bottom:24px}
@@ -49,27 +45,26 @@ strong{color:var(--paper)}
 .card h3{margin:0 0 6px;font:800 1.15rem "Bricolage Grotesque",sans-serif;color:var(--paper)}
 .card p{margin:0}
 .big{font:700 1.3rem "JetBrains Mono",monospace;color:var(--sun);word-break:break-all}
-footer{border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-top:40px;padding-bottom:56px}
-footer .fb{font:800 21px "Bricolage Grotesque",sans-serif;color:var(--paper);display:inline-flex;align-items:center;gap:4px;letter-spacing:-.035em;margin-bottom:10px}footer .fb .tk{border-radius:4px;padding:1px 8px 3px 7px;-webkit-mask:radial-gradient(circle at 0 50%,transparent 3px,#000 3.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 3px,#000 3.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 50%,transparent 3px,#000 3.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 3px,#000 3.5px) right/51% 100% no-repeat}
-footer nav{display:flex;flex-wrap:wrap;gap:24px}
-footer nav a{color:var(--soft)}
-@media(max-width:600px){.wrap{padding:0 20px}.toplinks{gap:16px}.hide-s{display:none}}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--soft)}th{color:var(--paper);font-weight:700;background:var(--night2)}
+.tbl{overflow-x:auto}
+@media(max-width:720px){.wrap{padding:0 20px}.hero{padding-top:36px}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is Vluchtdeals?", "acceptedAnswer": {"@type": "Answer", "text": "Vluchtdeals helpt je goedkoop vliegen vanaf Nederland en België. Je kunt zelf alle vluchten zoeken en vergelijken, en we laten elke dag vluchten zien die flink goedkoper zijn dan normaal."}}, {"@type": "Question", "name": "Verkoopt Vluchtdeals zelf tickets?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Wij zoeken en vergelijken. Je boekt altijd direct bij de luchtvaartmaatschappij of het reisbureau dat je kiest. Je boekingsovereenkomst sluit je met die partij, niet met Vluchtdeals."}}, {"@type": "Question", "name": "Kost het mij iets?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, Vluchtdeals is gratis. Boek je via een link op onze site, dan krijgen wij soms een kleine vergoeding van de aanbieder. Jij betaalt daardoor niets extra."}}, {"@type": "Question", "name": "Hoe vinden jullie de deals?", "acceptedAnswer": {"@type": "Answer", "text": "Ons systeem bekijkt elke dag duizenden retourprijzen vanaf Amsterdam, Eindhoven, Brussel en Düsseldorf. Per route berekenen we wat een vlucht normaal kost (de middelste prijs die we de afgelopen 60 dagen zagen). Is een vlucht minstens 30% goedkoper, dan tonen we hem als deal."}}, {"@type": "Question", "name": "Waarom is de prijs bij de aanbieder anders dan bij jullie?", "acceptedAnswer": {"@type": "Answer", "text": "Vliegprijzen veranderen vaak meerdere keren per dag. Onze dealprijzen zijn recent gevonden door andere reizigers en kunnen tot ongeveer 48 uur oud zijn. Een goedkope plek kan dus al verkocht zijn. De prijs die je in de zoekmachine en bij de aanbieder ziet, is altijd de actuele prijs."}}, {"@type": "Question", "name": "Is de prijs per persoon en retour?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Onze dealprijzen zijn per persoon, voor een retourvlucht, in euro's."}}, {"@type": "Question", "name": "Zit bagage bij de prijs inbegrepen?", "acceptedAnswer": {"@type": "Answer", "text": "Meestal alleen een klein tasje onder de stoel. Ruimbagage en een grotere handbagagekoffer kosten bij veel maatschappijen extra. Bekijk de tariefvoorwaarden voordat je boekt."}}, {"@type": "Question", "name": "Een deal onder 'Brussel' vertrekt van Charleroi. Klopt dat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, dat kan. Bij Brussel horen ook vluchten van Charleroi (Brussels South), en bij Düsseldorf ook vluchten van Weeze. We tonen altijd de luchthaven waar de vlucht echt vertrekt."}}, {"@type": "Question", "name": "Kan ik ook vanaf een andere luchthaven zoeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. In de zoekmachine kun je vanaf elke luchthaven ter wereld zoeken. De dagelijkse deals gaan alleen over Amsterdam, Eindhoven, Brussel en Düsseldorf."}}, {"@type": "Question", "name": "Hoe boek ik een deal?", "acceptedAnswer": {"@type": "Answer", "text": "Klik op Bekijk deal. Je komt in onze zoekmachine met de juiste route en data. Kies daar een aanbieder en rond de boeking af op de site van die aanbieder."}}, {"@type": "Question", "name": "Ik wil mijn boeking wijzigen of annuleren. Wat nu?", "acceptedAnswer": {"@type": "Answer", "text": "Neem contact op met de partij waar je hebt geboekt (de luchtvaartmaatschappij of het reisbureau). Je vindt hun gegevens in je bevestigingsmail. Vluchtdeals heeft geen toegang tot boekingen en kan niets wijzigen of terugbetalen."}}, {"@type": "Question", "name": "Mijn vlucht is vertraagd of geannuleerd.", "acceptedAnswer": {"@type": "Answer", "text": "Wend je tot de luchtvaartmaatschappij. Vertrek je uit de EU of vlieg je met een Europese maatschappij, dan heb je bij lange vertraging of annulering vaak recht op compensatie. Meer uitleg vind je op Your Europe (Europese Unie)."}}, {"@type": "Question", "name": "Heb ik een visum of paspoort nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Dat hangt af van je nationaliteit en bestemming. Kijk voor je boekt op nederlandwereldwijd.nl (reisadvies en inreisregels)."}}, {"@type": "Question", "name": "Hoe vaak krijg ik de dealmail?", "acceptedAnswer": {"@type": "Answer", "text": "Eén keer per week, met de beste deals van dat moment. Je schrijft je in via het formulier op de homepage. Je krijgt eerst een mail om je inschrijving te bevestigen."}}, {"@type": "Question", "name": "Hoe meld ik me af?", "acceptedAnswer": {"@type": "Answer", "text": "Onderaan elke dealmail staat een afmeldlink. Eén klik en je krijgt geen dealmail meer. Lukt het niet? Mail ons op info@vluchtdeals.com."}}, {"@type": "Question", "name": "Ik heb geen bevestigingsmail gekregen.", "acceptedAnswer": {"@type": "Answer", "text": "Kijk even in je map met spam of reclame. Staat hij daar ook niet, schrijf je dan opnieuw in of mail ons."}}, {"@type": "Question", "name": "Gebruikt Vluchtdeals cookies?", "acceptedAnswer": {"@type": "Answer", "text": "Deze website (vluchtdeals.com) gebruikt geen cookies. De zoekmachine op zoeken.vluchtdeals.com wordt geleverd door onze partner Travelpayouts en gebruikt wel cookies, onder meer om je zoekopdracht te onthouden en boekingen te kunnen toeschrijven. Lees meer in ons privacybeleid."}}, {"@type": "Question", "name": "Verkopen jullie mijn gegevens?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, nooit. Zie ons privacybeleid."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is Vluchtdeals?", "acceptedAnswer": {"@type": "Answer", "text": "Vluchtdeals helpt je goedkoop vliegen vanaf Nederland, België en Duitsland. Je kunt zelf alle vluchten zoeken en vergelijken, en we laten elke dag de vluchten zien die op dat moment echt goedkoop zijn."}}, {"@type": "Question", "name": "Verkoopt Vluchtdeals zelf tickets?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Wij zoeken en vergelijken. Je boekt altijd direct bij de luchtvaartmaatschappij of het reisbureau dat je kiest. Je boekingsovereenkomst sluit je met die partij, niet met Vluchtdeals."}}, {"@type": "Question", "name": "Kost het mij iets?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, Vluchtdeals is gratis. Je betaalt bij de aanbieder dezelfde prijs als wanneer je er zelf naartoe gaat."}}, {"@type": "Question", "name": "Hoe vinden jullie de deals?", "acceptedAnswer": {"@type": "Answer", "text": "We houden elke dag duizenden vliegprijzen in de gaten en laten alleen de vluchten zien die op dat moment echt goedkoper zijn dan normaal. Geen nep-kortingen of lokprijzen."}}, {"@type": "Question", "name": "Waarom is de prijs bij de aanbieder anders dan bij jullie?", "acceptedAnswer": {"@type": "Answer", "text": "Vliegprijzen veranderen vaak meerdere keren per dag. Een goedkope plek kan dus al verkocht zijn. De prijs die je in de zoekmachine en bij de aanbieder ziet, is altijd de actuele prijs."}}, {"@type": "Question", "name": "Is de prijs per persoon en retour?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Onze dealprijzen zijn per persoon, voor een retourvlucht, in euro's."}}, {"@type": "Question", "name": "Zit bagage bij de prijs inbegrepen?", "acceptedAnswer": {"@type": "Answer", "text": "Meestal alleen een klein tasje onder de stoel. Ruimbagage en een grotere handbagagekoffer kosten bij veel maatschappijen extra. Bekijk de tariefvoorwaarden voordat je boekt."}}, {"@type": "Question", "name": "Een deal onder 'Brussel' vertrekt van Charleroi. Klopt dat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, dat kan. Bij Brussel horen ook vluchten van Charleroi (Brussels South), en bij Düsseldorf ook vluchten van Weeze. We tonen altijd de luchthaven waar de vlucht echt vertrekt."}}, {"@type": "Question", "name": "Kan ik ook vanaf een andere luchthaven zoeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. In de zoekmachine kun je vanaf elke luchthaven ter wereld zoeken. De dagelijkse deals gaan over vluchten vanaf Nederland, België en Duitsland."}}, {"@type": "Question", "name": "Hoe boek ik een deal?", "acceptedAnswer": {"@type": "Answer", "text": "Klik op Bekijk deal. Je komt in onze zoekmachine met de juiste route en data. Kies daar een aanbieder en rond de boeking af op de site van die aanbieder."}}, {"@type": "Question", "name": "Ik wil mijn boeking wijzigen of annuleren. Wat nu?", "acceptedAnswer": {"@type": "Answer", "text": "Neem contact op met de partij waar je hebt geboekt (de luchtvaartmaatschappij of het reisbureau). Je vindt hun gegevens in je bevestigingsmail. Vluchtdeals heeft geen toegang tot boekingen en kan niets wijzigen of terugbetalen."}}, {"@type": "Question", "name": "Mijn vlucht is vertraagd of geannuleerd.", "acceptedAnswer": {"@type": "Answer", "text": "Wend je tot de luchtvaartmaatschappij. Vertrek je uit de EU of vlieg je met een Europese maatschappij, dan heb je bij lange vertraging of annulering vaak recht op compensatie. Meer uitleg vind je op Your Europe (Europese Unie)."}}, {"@type": "Question", "name": "Heb ik een visum of paspoort nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Dat hangt af van je nationaliteit en bestemming. Kijk voor je boekt op nederlandwereldwijd.nl (reisadvies en inreisregels)."}}, {"@type": "Question", "name": "Hoe vaak krijg ik de dealmail?", "acceptedAnswer": {"@type": "Answer", "text": "Eén keer per week, met de beste deals van dat moment. Je schrijft je in via het formulier op de homepage. Je krijgt eerst een mail om je inschrijving te bevestigen."}}, {"@type": "Question", "name": "Hoe meld ik me af?", "acceptedAnswer": {"@type": "Answer", "text": "Onderaan elke dealmail staat een afmeldlink. Eén klik en je krijgt geen dealmail meer. Lukt het niet? Mail ons op info@vluchtdeals.com."}}, {"@type": "Question", "name": "Ik heb geen bevestigingsmail gekregen.", "acceptedAnswer": {"@type": "Answer", "text": "Kijk even in je map met spam of reclame. Staat hij daar ook niet, schrijf je dan opnieuw in of mail ons."}}, {"@type": "Question", "name": "Gebruikt Vluchtdeals cookies?", "acceptedAnswer": {"@type": "Answer", "text": "Op vluchtdeals.com plaatsen we alleen meet- of advertentiecookies als je daar toestemming voor geeft. Je keuze pas je aan via ‘Privacy-instellingen’ onderaan elke pagina. De zoekmachine op zoeken.vluchtdeals.com wordt geleverd door onze partner Travelpayouts en gebruikt eigen cookies. Lees meer in de cookieverklaring."}}, {"@type": "Question", "name": "Verkopen jullie mijn gegevens?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, nooit. Zie onze privacyverklaring."}}]}</script>
 </head>
 <body>
-<header class="top"><div class="wrap topbar">
-  <a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a>
-  <nav class="toplinks" aria-label="Menu">
-    <a href="/#zoeken">Vluchten zoeken</a>
-    <a class="hide-s" href="/#deals">Deals</a>
-    <a class="hide-s" href="/bestemmingen/">Bestemmingen</a>
-    <a href="/help.html" aria-current="page">Help</a>
-    <a href="/over-ons.html">Over ons</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</div></header>
+<header class="vd-head">
+  <div class="in">
+    <a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a>
+    <div class="right">
+      <a class="l" href="/bestemmingen/">Bestemmingen</a><a class="l" href="/help.html" aria-current="page">Help</a>
+      <span class="vd-soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></span>
+      <a class="vd-cta" href="/#dealmail">Dealmail</a>
+      <button type="button" class="vd-menu" aria-label="Menu" aria-expanded="false" aria-controls="vd-panel"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="vd-panel" id="vd-panel" aria-label="Menu"><a href="/#zoeken">Vluchten zoeken</a><a href="/#deals">Deals van vandaag</a><a href="/bestemmingen/">Bestemmingen</a><a href="/#reis">Maak je reis compleet</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></nav>
+  
+</header>
 <div class="wrap narrow hero">
   <div class="kicker">HELP &amp; FAQ</div>
   <h1>Hoe kunnen we helpen?</h1>
@@ -78,18 +73,18 @@ footer nav a{color:var(--soft)}
 <main class="wrap narrow">
 <h2>Over Vluchtdeals</h2>
 <div class="faq">
-<details><summary>Wat is Vluchtdeals?</summary><div><p>Vluchtdeals helpt je goedkoop vliegen vanaf Nederland en België. Je kunt zelf alle vluchten zoeken en vergelijken, en we laten elke dag vluchten zien die flink goedkoper zijn dan normaal.</p></div></details>
+<details><summary>Wat is Vluchtdeals?</summary><div><p>Vluchtdeals helpt je goedkoop vliegen vanaf Nederland, België en Duitsland. Je kunt zelf alle vluchten zoeken en vergelijken, en we laten elke dag de vluchten zien die op dat moment echt goedkoop zijn.</p></div></details>
 <details><summary>Verkoopt Vluchtdeals zelf tickets?</summary><div><p>Nee. Wij zoeken en vergelijken. Je boekt altijd direct bij de luchtvaartmaatschappij of het reisbureau dat je kiest. Je boekingsovereenkomst sluit je met die partij, niet met Vluchtdeals.</p></div></details>
-<details><summary>Kost het mij iets?</summary><div><p>Nee, Vluchtdeals is gratis. Boek je via een link op onze site, dan krijgen wij soms een kleine vergoeding van de aanbieder. Jij betaalt daardoor niets extra.</p></div></details>
+<details><summary>Kost het mij iets?</summary><div><p>Nee, Vluchtdeals is gratis. Je betaalt bij de aanbieder dezelfde prijs als wanneer je er zelf naartoe gaat.</p></div></details>
 </div>
 <h2>Deals en prijzen</h2>
 <div class="faq">
-<details><summary>Hoe vinden jullie de deals?</summary><div><p>Ons systeem bekijkt elke dag duizenden retourprijzen vanaf Amsterdam, Eindhoven, Brussel en Düsseldorf. Per route berekenen we wat een vlucht normaal kost (de middelste prijs die we de afgelopen 60 dagen zagen). Is een vlucht minstens 30% goedkoper, dan tonen we hem als deal.</p></div></details>
-<details><summary>Waarom is de prijs bij de aanbieder anders dan bij jullie?</summary><div><p>Vliegprijzen veranderen vaak meerdere keren per dag. Onze dealprijzen zijn recent gevonden door andere reizigers en kunnen tot ongeveer 48 uur oud zijn. Een goedkope plek kan dus al verkocht zijn. De prijs die je in de zoekmachine en bij de aanbieder ziet, is altijd de actuele prijs.</p></div></details>
+<details><summary>Hoe vinden jullie de deals?</summary><div><p>We houden elke dag duizenden vliegprijzen in de gaten en laten alleen de vluchten zien die op dat moment echt goedkoper zijn dan normaal. Geen nep-kortingen of lokprijzen.</p></div></details>
+<details><summary>Waarom is de prijs bij de aanbieder anders dan bij jullie?</summary><div><p>Vliegprijzen veranderen vaak meerdere keren per dag. Een goedkope plek kan dus al verkocht zijn. De prijs die je in de zoekmachine en bij de aanbieder ziet, is altijd de actuele prijs.</p></div></details>
 <details><summary>Is de prijs per persoon en retour?</summary><div><p>Ja. Onze dealprijzen zijn per persoon, voor een retourvlucht, in euro's.</p></div></details>
 <details><summary>Zit bagage bij de prijs inbegrepen?</summary><div><p>Meestal alleen een klein tasje onder de stoel. Ruimbagage en een grotere handbagagekoffer kosten bij veel maatschappijen extra. Bekijk de tariefvoorwaarden voordat je boekt.</p></div></details>
 <details><summary>Een deal onder 'Brussel' vertrekt van Charleroi. Klopt dat?</summary><div><p>Ja, dat kan. Bij Brussel horen ook vluchten van Charleroi (Brussels South), en bij Düsseldorf ook vluchten van Weeze. We tonen altijd de luchthaven waar de vlucht echt vertrekt.</p></div></details>
-<details><summary>Kan ik ook vanaf een andere luchthaven zoeken?</summary><div><p>Ja. In de <a href="/#zoeken">zoekmachine</a> kun je vanaf elke luchthaven ter wereld zoeken. De dagelijkse deals gaan alleen over Amsterdam, Eindhoven, Brussel en Düsseldorf.</p></div></details>
+<details><summary>Kan ik ook vanaf een andere luchthaven zoeken?</summary><div><p>Ja. In de <a href="/#zoeken">zoekmachine</a> kun je vanaf elke luchthaven ter wereld zoeken. De dagelijkse deals gaan over vluchten vanaf Nederland, België en Duitsland.</p></div></details>
 </div>
 <h2>Boeken en je reis</h2>
 <div class="faq">
@@ -106,24 +101,19 @@ footer nav a{color:var(--soft)}
 </div>
 <h2>Privacy en cookies</h2>
 <div class="faq">
-<details><summary>Gebruikt Vluchtdeals cookies?</summary><div><p>Deze website (vluchtdeals.com) gebruikt geen cookies. De zoekmachine op zoeken.vluchtdeals.com wordt geleverd door onze partner Travelpayouts en gebruikt wel cookies, onder meer om je zoekopdracht te onthouden en boekingen te kunnen toeschrijven. Lees meer in ons <a href="/privacy.html">privacybeleid</a>.</p></div></details>
-<details><summary>Verkopen jullie mijn gegevens?</summary><div><p>Nee, nooit. Zie ons <a href="/privacy.html">privacybeleid</a>.</p></div></details>
+<details><summary>Gebruikt Vluchtdeals cookies?</summary><div><p>Op vluchtdeals.com plaatsen we alleen meet- of advertentiecookies als je daar toestemming voor geeft. Je keuze pas je aan via ‘Privacy-instellingen’ onderaan elke pagina. De zoekmachine op zoeken.vluchtdeals.com wordt geleverd door onze partner Travelpayouts en gebruikt eigen cookies. Lees meer in de <a href="/cookies.html">cookieverklaring</a>.</p></div></details>
+<details><summary>Verkopen jullie mijn gegevens?</summary><div><p>Nee, nooit. Zie onze <a href="/privacy.html">privacyverklaring</a>.</p></div></details>
 </div>
 <h2>Staat je vraag er niet bij?</h2>
 <p>Mail ons gerust op <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>. We antwoorden meestal binnen 2 werkdagen.</p>
 </main>
-<footer><div class="wrap">
-  <div style="max-width:560px"><span class="fb">vlucht<span class="tk">deals</span></span>Een initiatief van ProTrading · KvK 95302271. Vluchtdeals verkoopt zelf geen tickets. Sommige links zijn affiliate-links: boek je via zo'n link, dan krijgen wij een kleine vergoeding. Jij betaalt niets extra.</div>
-  <nav aria-label="Voettekst">
-    <a href="/bestemmingen/">Bestemmingen</a>
-    <a href="/help.html">Help &amp; FAQ</a>
-    <a href="/over-ons.html">Over ons</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/privacy.html">Privacybeleid</a>
-    <a href="/voorwaarden.html">Algemene voorwaarden</a>
-    <a href="https://www.instagram.com/vluchtdeals/">Instagram</a>
-    <a href="https://www.tiktok.com/@vluchtdeals_nl">TikTok</a>
-  </nav>
-</div></footer>
+<footer class="vd-foot">
+  <div class="cols"><details><summary>Ontdek</summary><a href="/bestemmingen/">Alle bestemmingen</a><a href="/#deals">Deals van vandaag</a><a href="/#zoeken">Vluchten zoeken</a><a href="/#dealmail">Dealmail</a></details><details><summary>Reis compleet</summary><a href="/#reis">Hotels</a><a href="/#reis">Autohuur</a><a href="/#reis">Activiteiten</a><a href="/#reis">Luchthaventaxi</a><a href="/#reis">eSIM</a></details><details><summary>Ondersteuning</summary><a href="/help.html">Help en veelgestelde vragen</a><a href="/contact.html">Contact</a></details><details><summary>Voorwaarden en privacy</summary><a href="/privacy.html">Privacyverklaring</a><a href="/cookies.html">Cookieverklaring</a><button type="button" data-privacy-settings>Privacy-instellingen</button><a href="/voorwaarden.html">Algemene voorwaarden</a></details><details><summary>Over</summary><a href="/over-ons.html">Over Vluchtdeals</a><a href="/contact.html">Samenwerken</a></details></div>
+  <div class="base">
+    <div class="b1"><a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a><span>Volg ons voor dagelijkse deals</span><div class="soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></div></div>
+    <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
+  </div>
+</footer>
+<script src="/assets/vd.js?v=3" defer></script>
 </body>
 </html>

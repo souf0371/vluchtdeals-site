@@ -4,97 +4,99 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Algemene voorwaarden – Vluchtdeals</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<meta name="description" content="De voorwaarden voor het gebruik van Vluchtdeals: wat we doen, prijzen, vergoedingen en aansprakelijkheid.">
+<link rel="canonical" href="https://vluchtdeals.com/voorwaarden.html">
+<meta property="og:title" content="Algemene voorwaarden – Vluchtdeals">
+<meta property="og:description" content="De voorwaarden voor het gebruik van Vluchtdeals: wat we doen, prijzen, vergoedingen en aansprakelijkheid.">
+<meta property="og:image" content="https://vluchtdeals.com/og.png">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#0B1028">
+<link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/vd.css?v=3">
 <style>
-:root{--sky:#CFE6FF;--slate:#1E2A38;--sign:#FFCC00;--ink:#0E1E33}
+:root{--night:#0B1028;--night2:#141B3D;--line:#1C2450;--line2:#3A4270;--sun:#FFC53D;--sun2:#FFD873;--paper:#EEF1F8;--soft:#C9D0E4;--mute:#8E97B8;--ink:#0B1028}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Archivo",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:17px}
-a{color:#0B4FA8}
-a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.wrap{max-width:760px;margin:0 auto;padding-inline:24px}
-.top{background:var(--sky)}
-.bar{display:flex;align-items:center;justify-content:space-between;padding-block:22px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.2rem;font-variation-settings:"wdth" 112}
-.pict{display:inline-grid;place-items:center;width:38px;height:38px;background:var(--sign);border-radius:6px;font-size:20px}
-.bar nav a{color:var(--ink);text-decoration:none;margin-left:20px;font-size:.95rem}
-.top h1{margin:0;padding-block:28px 40px;font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(2rem,6vw,3.4rem);line-height:1}
-main{padding-block:36px 70px}
-h2{font-size:1.2rem;margin:34px 0 8px;font-variation-settings:"wdth" 110}
-.meta{color:#4B5D74;font-size:.95rem}
-.en{margin-top:60px;padding-top:30px;border-top:3px solid var(--ink)}
-.en h1{font-variation-settings:"wdth" 118;font-size:1.8rem;margin:0}
-footer{background:var(--slate);color:#C9D3DF;padding-block:30px;font-size:.95rem}
-footer a{color:#fff;margin-right:16px}
+body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--sun)}a:hover{color:var(--sun2)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.narrow{max-width:800px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--sun);color:var(--ink)}
+.btn:hover{background:var(--sun2);color:var(--ink)}
+.hero{padding-top:56px;padding-bottom:24px}
+.kicker{font:700 13px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sun)}
+h1{font:800 clamp(2.2rem,5.5vw,3.6rem)/1.05 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{font-size:1.15rem;color:var(--soft);max-width:640px;margin:0}
+main{padding-top:24px;padding-bottom:80px}
+h2{font:800 1.5rem/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;margin:44px 0 12px}
+p,li{color:var(--soft)}
+strong{color:var(--paper)}
+.faq details{background:var(--night2);border:1px solid var(--line);border-radius:16px;margin:12px 0;padding:0 22px}
+.faq summary{cursor:pointer;list-style:none;font-weight:700;color:var(--paper);padding:18px 32px 18px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 26px "JetBrains Mono",monospace;color:var(--sun)}
+.faq details[open] summary::after{content:"–"}
+.faq details>div{padding-bottom:16px}
+.faq details>div p:first-child{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--night2);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin:0 0 6px;font:800 1.15rem "Bricolage Grotesque",sans-serif;color:var(--paper)}
+.card p{margin:0}
+.big{font:700 1.3rem "JetBrains Mono",monospace;color:var(--sun);word-break:break-all}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--soft)}th{color:var(--paper);font-weight:700;background:var(--night2)}
+.tbl{overflow-x:auto}
+@media(max-width:720px){.wrap{padding:0 20px}.hero{padding-top:36px}}
 </style>
-<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 </head>
 <body>
-<div class="top"><header class="wrap bar"><a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage"><img src="/img/woordmerk-licht.png" alt="" height="40" style="height:40px;width:auto;display:block"></a><nav><a href="/">Home</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a></nav></header><div class="wrap"><h1>Algemene voorwaarden</h1></div></div>
-
-<main class="wrap doc">
-<p class="meta">Laatst bijgewerkt: 24 november 2026 <a href="#en">English version below</a></p>
-
+<header class="vd-head">
+  <div class="in">
+    <a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a>
+    <div class="right">
+      <a class="l" href="/bestemmingen/">Bestemmingen</a><a class="l" href="/help.html">Help</a>
+      <span class="vd-soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></span>
+      <a class="vd-cta" href="/#dealmail">Dealmail</a>
+      <button type="button" class="vd-menu" aria-label="Menu" aria-expanded="false" aria-controls="vd-panel"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="vd-panel" id="vd-panel" aria-label="Menu"><a href="/#zoeken">Vluchten zoeken</a><a href="/#deals">Deals van vandaag</a><a href="/bestemmingen/">Bestemmingen</a><a href="/#reis">Maak je reis compleet</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></nav>
+  
+</header>
+<div class="wrap narrow hero">
+  <div class="kicker">VOORWAARDEN</div>
+  <h1>Algemene voorwaarden</h1>
+  <p class="lead">De afspraken voor het gebruik van onze website, dealmail en kanalen.</p>
+</div>
+<main class="wrap narrow">
+<p><strong>Laatst bijgewerkt: 27 november 2026.</strong> <a href="#en">English version below</a>.</p>
 <h2>1. Over deze voorwaarden</h2>
-<p>Deze voorwaarden gelden voor het gebruik van de website vluchtdeals.com en de kanalen van Vluchtdeals op Telegram, Instagram en TikTok. Vluchtdeals is een initiatief van ProTrading, KvK 95302271. Door onze website of kanalen te gebruiken, ga je akkoord met deze voorwaarden.</p>
-
+<p>Deze voorwaarden gelden voor het gebruik van de website vluchtdeals.com, de dealmail en de kanalen van Vluchtdeals op Instagram en TikTok. Vluchtdeals is een initiatief van ProTrading, KvK 95302271. Door onze website of kanalen te gebruiken, ga je akkoord met deze voorwaarden.</p>
 <h2>2. Wat Vluchtdeals doet</h2>
-<p>Vluchtdeals deelt gratis informatie over voordelige vliegtickets. Wij verkopen zelf geen tickets en zijn geen reisorganisatie of reisbureau. Je boekt altijd rechtstreeks bij de luchtvaartmaatschappij of aanbieder. Op die boeking zijn de voorwaarden van die aanbieder van toepassing.</p>
-
+<p>Vluchtdeals deelt gratis informatie over voordelige vliegtickets en helpt je prijzen te vergelijken. Wij verkopen zelf geen tickets en zijn geen reisorganisatie of reisbureau. Je boekt altijd rechtstreeks bij de luchtvaartmaatschappij of aanbieder. Op die boeking zijn de voorwaarden van die aanbieder van toepassing.</p>
 <h2>3. Prijzen en beschikbaarheid</h2>
 <p>Prijzen van vliegtickets veranderen voortdurend. De prijzen die wij tonen, golden op het moment dat wij ze vonden en kunnen inmiddels hoger zijn of niet meer beschikbaar. Controleer altijd de actuele prijs, datums, bagageregels en voorwaarden bij de aanbieder voordat je boekt.</p>
-
-<h2>4. Affiliate-links</h2>
-<p>Sommige links zijn affiliate-links. Als je via zo'n link boekt, kunnen wij een vergoeding ontvangen. Dit kost jou niets extra en heeft geen invloed op de prijs die je betaalt.</p>
-
+<h2>4. Vergoedingen</h2>
+<p>Voor sommige boekingen via onze links ontvangen wij een vergoeding van de aanbieder. Dit kost jou niets extra en heeft geen invloed op de prijs die je betaalt.</p>
 <h2>5. Aansprakelijkheid</h2>
 <p>We doen ons best om juiste informatie te delen, maar we geven geen garantie dat alle informatie volledig, juist of actueel is. Vluchtdeals is niet aansprakelijk voor schade die ontstaat door het gebruik van onze informatie, of door boekingen, annuleringen, vertragingen of andere problemen bij een aanbieder.</p>
-
 <h2>6. Intellectueel eigendom</h2>
-<p>De teksten, ontwerpen en video's van Vluchtdeals zijn van ons, of we gebruiken ze met toestemming of onder licentie (bijvoorbeeld beeldmateriaal van Pixabay). Je mag onze posts delen via de deelfuncties van de platforms. Kopiëren of commercieel hergebruiken mag alleen met onze schriftelijke toestemming.</p>
-
+<p>De teksten, ontwerpen, het logo en de video's van Vluchtdeals zijn van ons, of we gebruiken ze met toestemming of onder licentie. Je mag onze posts delen via de deelfuncties van de platforms. Kopiëren of commercieel hergebruiken mag alleen met onze schriftelijke toestemming.</p>
 <h2>7. Gebruik van onze kanalen</h2>
 <p>Reacties in onze kanalen moeten respectvol blijven. We mogen reacties die beledigend, misleidend of spam zijn verwijderen en gebruikers blokkeren.</p>
-
-<h2>8. Wijzigingen</h2>
-<p>We kunnen deze voorwaarden aanpassen. De nieuwste versie staat altijd op deze pagina.</p>
-
-<h2>9. Toepasselijk recht</h2>
-<p>Op deze voorwaarden is Nederlands recht van toepassing. Vragen? Mail naar <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
-
-<div class="en" id="en">
-<h1>Terms of Service (English)</h1>
-<p class="meta">Last updated: November 24, 2026</p>
-
-<h2>1. About these terms</h2>
-<p>These terms apply to the website vluchtdeals.com and to the Vluchtdeals channels on Telegram, Instagram and TikTok. Vluchtdeals is operated by ProTrading, Dutch Chamber of Commerce (KvK) number 95302271. By using our website or channels you agree to these terms.</p>
-
-<h2>2. What Vluchtdeals does</h2>
-<p>Vluchtdeals shares free information about cheap flights. We do not sell tickets and are not a travel agency or tour operator. You always book directly with the airline or provider, whose terms apply to your booking.</p>
-
-<h2>3. Prices and availability</h2>
-<p>Flight prices change constantly. Prices we show were valid when we found them and may have changed or sold out. Always check the current price, dates, baggage rules and conditions with the provider before booking.</p>
-
-<h2>4. Affiliate links</h2>
-<p>Some links are affiliate links. If you book through them we may receive a commission, at no extra cost to you.</p>
-
-<h2>5. Liability</h2>
-<p>We aim to share accurate information but give no guarantee that it is complete, correct or up to date. Vluchtdeals is not liable for damage resulting from the use of our information or from bookings, cancellations, delays or other issues with a provider.</p>
-
-<h2>6. Intellectual property</h2>
-<p>Vluchtdeals texts, designs and videos are owned by us or used with permission or under licence (for example Pixabay footage). You may share our posts using the platforms' share features. Copying or commercial reuse requires our written permission.</p>
-
-<h2>7. Use of our channels</h2>
-<p>Comments must remain respectful. We may remove offensive, misleading or spam comments and block users.</p>
-
-<h2>8. Changes</h2>
-<p>We may update these terms. The latest version is always available on this page.</p>
-
-<h2>9. Governing law</h2>
-<p>These terms are governed by Dutch law. Questions: <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
-</div>
+<h2>8. Wijzigingen en toepasselijk recht</h2>
+<p>We kunnen deze voorwaarden aanpassen; de nieuwste versie staat altijd op deze pagina. Op deze voorwaarden is Nederlands recht van toepassing. Vragen? Mail naar <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
+<h2 id="en">Terms of use (English)</h2>
+<p>These terms apply to vluchtdeals.com, the deal newsletter and the Vluchtdeals channels on Instagram and TikTok, operated by ProTrading (KvK 95302271). Vluchtdeals shares free information about cheap flights and helps you compare prices; we do not sell tickets and are not a travel agency. You always book directly with the airline or provider, whose terms apply. Prices change constantly; always check the current price and conditions before booking. For some bookings made through our links we receive a fee from the provider, at no extra cost to you. We give no guarantee that information is complete or up to date and are not liable for damage resulting from its use or from issues with a provider. Our texts, designs, logo and videos may not be copied or reused commercially without written permission. Dutch law applies. Questions: info@vluchtdeals.com.</p>
 </main>
-
-<footer><div class="wrap"><p>Vluchtdeals is een initiatief van ProTrading, KvK 95302271. <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a></p><p><a href="/privacy.html">Privacybeleid</a><a href="/voorwaarden.html">Algemene voorwaarden</a></p></div></footer>
+<footer class="vd-foot">
+  <div class="cols"><details><summary>Ontdek</summary><a href="/bestemmingen/">Alle bestemmingen</a><a href="/#deals">Deals van vandaag</a><a href="/#zoeken">Vluchten zoeken</a><a href="/#dealmail">Dealmail</a></details><details><summary>Reis compleet</summary><a href="/#reis">Hotels</a><a href="/#reis">Autohuur</a><a href="/#reis">Activiteiten</a><a href="/#reis">Luchthaventaxi</a><a href="/#reis">eSIM</a></details><details><summary>Ondersteuning</summary><a href="/help.html">Help en veelgestelde vragen</a><a href="/contact.html">Contact</a></details><details><summary>Voorwaarden en privacy</summary><a href="/privacy.html">Privacyverklaring</a><a href="/cookies.html">Cookieverklaring</a><button type="button" data-privacy-settings>Privacy-instellingen</button><a href="/voorwaarden.html">Algemene voorwaarden</a></details><details><summary>Over</summary><a href="/over-ons.html">Over Vluchtdeals</a><a href="/contact.html">Samenwerken</a></details></div>
+  <div class="base">
+    <div class="b1"><a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a><span>Volg ons voor dagelijkse deals</span><div class="soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></div></div>
+    <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
+  </div>
+</footer>
+<script src="/assets/vd.js?v=3" defer></script>
 </body>
 </html>

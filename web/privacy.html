@@ -3,118 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacybeleid – Vluchtdeals</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<title>Privacyverklaring – Vluchtdeals</title>
+<meta name="description" content="Hoe Vluchtdeals omgaat met je gegevens: website, bezoekcijfers, dealmail, partners en je rechten.">
+<link rel="canonical" href="https://vluchtdeals.com/privacy.html">
+<meta property="og:title" content="Privacyverklaring – Vluchtdeals">
+<meta property="og:description" content="Hoe Vluchtdeals omgaat met je gegevens: website, bezoekcijfers, dealmail, partners en je rechten.">
+<meta property="og:image" content="https://vluchtdeals.com/og.png">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#0B1028">
+<link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/assets/vd.css?v=3">
 <style>
-:root{--sky:#CFE6FF;--slate:#1E2A38;--sign:#FFCC00;--ink:#0E1E33}
+:root{--night:#0B1028;--night2:#141B3D;--line:#1C2450;--line2:#3A4270;--sun:#FFC53D;--sun2:#FFD873;--paper:#EEF1F8;--soft:#C9D0E4;--mute:#8E97B8;--ink:#0B1028}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Archivo",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:17px}
-a{color:#0B4FA8}
-a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.wrap{max-width:760px;margin:0 auto;padding-inline:24px}
-.top{background:var(--sky)}
-.bar{display:flex;align-items:center;justify-content:space-between;padding-block:22px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.2rem;font-variation-settings:"wdth" 112}
-.pict{display:inline-grid;place-items:center;width:38px;height:38px;background:var(--sign);border-radius:6px;font-size:20px}
-.bar nav a{color:var(--ink);text-decoration:none;margin-left:20px;font-size:.95rem}
-.top h1{margin:0;padding-block:28px 40px;font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(2rem,6vw,3.4rem);line-height:1}
-main{padding-block:36px 70px}
-h2{font-size:1.2rem;margin:34px 0 8px;font-variation-settings:"wdth" 110}
-.meta{color:#4B5D74;font-size:.95rem}
-.en{margin-top:60px;padding-top:30px;border-top:3px solid var(--ink)}
-.en h1{font-variation-settings:"wdth" 118;font-size:1.8rem;margin:0}
-footer{background:var(--slate);color:#C9D3DF;padding-block:30px;font-size:.95rem}
-footer a{color:#fff;margin-right:16px}
+body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--sun)}a:hover{color:var(--sun2)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.narrow{max-width:800px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--sun);color:var(--ink)}
+.btn:hover{background:var(--sun2);color:var(--ink)}
+.hero{padding-top:56px;padding-bottom:24px}
+.kicker{font:700 13px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sun)}
+h1{font:800 clamp(2.2rem,5.5vw,3.6rem)/1.05 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{font-size:1.15rem;color:var(--soft);max-width:640px;margin:0}
+main{padding-top:24px;padding-bottom:80px}
+h2{font:800 1.5rem/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;margin:44px 0 12px}
+p,li{color:var(--soft)}
+strong{color:var(--paper)}
+.faq details{background:var(--night2);border:1px solid var(--line);border-radius:16px;margin:12px 0;padding:0 22px}
+.faq summary{cursor:pointer;list-style:none;font-weight:700;color:var(--paper);padding:18px 32px 18px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 26px "JetBrains Mono",monospace;color:var(--sun)}
+.faq details[open] summary::after{content:"–"}
+.faq details>div{padding-bottom:16px}
+.faq details>div p:first-child{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--night2);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin:0 0 6px;font:800 1.15rem "Bricolage Grotesque",sans-serif;color:var(--paper)}
+.card p{margin:0}
+.big{font:700 1.3rem "JetBrains Mono",monospace;color:var(--sun);word-break:break-all}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--soft)}th{color:var(--paper);font-weight:700;background:var(--night2)}
+.tbl{overflow-x:auto}
+@media(max-width:720px){.wrap{padding:0 20px}.hero{padding-top:36px}}
 </style>
-<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="/logo.png?v=2"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 </head>
 <body>
-<div class="top"><header class="wrap bar"><a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage"><img src="/img/woordmerk-licht.png" alt="" height="40" style="height:40px;width:auto;display:block"></a><nav><a href="/">Home</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a></nav></header><div class="wrap"><h1>Privacybeleid</h1></div></div>
-
-<main class="wrap doc">
-<p class="meta">Laatst bijgewerkt: 25 november 2026 <a href="#en">English version below</a></p>
+<header class="vd-head">
+  <div class="in">
+    <a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a>
+    <div class="right">
+      <a class="l" href="/bestemmingen/">Bestemmingen</a><a class="l" href="/help.html">Help</a>
+      <span class="vd-soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></span>
+      <a class="vd-cta" href="/#dealmail">Dealmail</a>
+      <button type="button" class="vd-menu" aria-label="Menu" aria-expanded="false" aria-controls="vd-panel"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="vd-panel" id="vd-panel" aria-label="Menu"><a href="/#zoeken">Vluchten zoeken</a><a href="/#deals">Deals van vandaag</a><a href="/bestemmingen/">Bestemmingen</a><a href="/#reis">Maak je reis compleet</a><a href="/help.html">Help</a><a href="/contact.html">Contact</a><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></nav>
+  
+</header>
+<div class="wrap narrow hero">
+  <div class="kicker">PRIVACY</div>
+  <h1>Privacyverklaring</h1>
+  <p class="lead">Kort en duidelijk: welke gegevens we gebruiken, waarom, en wat jouw rechten zijn.</p>
+</div>
+<main class="wrap narrow">
+<p><strong>Laatst bijgewerkt: 27 november 2026.</strong> <a href="#en">English version below</a>.</p>
 
 <h2>1. Wie zijn wij?</h2>
-<p>Vluchtdeals is een initiatief van ProTrading, ingeschreven bij de Kamer van Koophandel onder nummer 95302271. ProTrading is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in dit privacybeleid. Contact: <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
+<p>Vluchtdeals is een initiatief van ProTrading, ingeschreven bij de Kamer van Koophandel onder nummer 95302271 (Nederland). ProTrading is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring. Contact: <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
 
-<h2>2. Welke gegevens verwerken wij?</h2>
-<p><strong>Website.</strong> Onze website gebruikt geen cookies, geen advertentietrackers en geen analysetools. De website wordt gehost door Cloudflare en gebruikt lettertypes van Google Fonts. Bij een bezoek kunnen deze partijen technische gegevens zoals je IP-adres tijdelijk verwerken om de site te tonen en te beveiligen.</p>
-<p id="dealmail"><strong>Dealmail.</strong> Als je je inschrijft voor onze dealmail, bewaren we je e-mailadres om je één keer per week vluchtdeals te sturen. Je krijgt eerst een mail om je inschrijving te bevestigen (dubbele bevestiging); pas daarna sta je op de lijst. Elke mail heeft een afmeldlink. Na afmelden sturen we je geen dealmail meer. We gebruiken hiervoor Brevo (Sendinblue SAS, Parijs, Frankrijk). Brevo meet of een mail geopend wordt en op welke links wordt geklikt, zodat we de dealmail kunnen verbeteren. Grondslag: jouw toestemming, die je altijd kunt intrekken.</p>
-<p><strong>E-mail.</strong> Als je ons mailt, gebruiken we je e-mailadres en de inhoud van je bericht alleen om je vraag te beantwoorden. We bewaren deze mails niet langer dan nodig, en maximaal 2 jaar.</p>
-<p><strong>Sociale media en Telegram.</strong> Als je ons volgt op Telegram, Instagram of TikTok, gelden de privacyregels van dat platform. Wij zien alleen wat het platform aan accounthouders laat zien, zoals openbare reacties en algemene statistieken (bijvoorbeeld het aantal weergaven). We exporteren of verkopen geen gegevens van volgers.</p>
+<h2>2. Welke gegevens verwerken wij, en waarom?</h2>
+<div class="tbl"><table>
+<tr><th>Wanneer</th><th>Welke gegevens</th><th>Waarom en grondslag</th><th>Hoe lang</th></tr>
+<tr><td>Je bezoekt de website</td><td>Technische gegevens zoals IP-adres, browser en bezochte pagina</td><td>Om de site te tonen en te beveiligen (hosting door Cloudflare). Gerechtvaardigd belang.</td><td>Kort, volgens de bewaartermijnen van Cloudflare</td></tr>
+<tr><td>Bezoekers tellen</td><td>Geanonimiseerde bezoekcijfers, zonder cookies en zonder persoonsprofiel</td><td>Cloudflare Web Analytics, om te zien hoeveel mensen de site bezoeken. Gerechtvaardigd belang.</td><td>Alleen als totaalcijfers</td></tr>
+<tr><td>Je geeft toestemming voor statistieken</td><td>Gebruiksgegevens via cookies</td><td>Google Analytics, om de site te verbeteren. Alleen met jouw toestemming; die kun je altijd intrekken via ‘Privacy-instellingen’.</td><td>Maximaal 14 maanden</td></tr>
+<tr><td>Je schrijft je in voor de dealmail</td><td>E-mailadres; of je een mail opent en op welke links je klikt</td><td>Om je één keer per week deals te sturen, via Brevo (Sendinblue SAS, Parijs). Eerst bevestig je je inschrijving per mail. Grondslag: toestemming.</td><td>Tot je je afmeldt</td></tr>
+<tr><td>Je mailt ons</td><td>E-mailadres en de inhoud van je bericht</td><td>Om je vraag te beantwoorden (Google Workspace). Gerechtvaardigd belang.</td><td>Maximaal 2 jaar</td></tr>
+</table></div>
+<p>De lettertypes van deze site staan op onze eigen server. Je browser maakt daarvoor dus geen verbinding met Google.</p>
 
-<h2>3. Koppelingen met TikTok en Instagram</h2>
-<p>We gebruiken de officiële koppelingen van TikTok (Login Kit en Content Posting API) en Meta/Instagram (Instagram Graph API) uitsluitend om onze eigen video's en foto's op onze eigen accounts te publiceren. Via deze koppelingen:</p>
-<ul>
-<li>loggen alleen wij (de beheerder van Vluchtdeals) in met ons eigen account;</li>
-<li>verwerken we alleen de basisgegevens van ons eigen account (zoals accountnaam en account-ID) en de content die we zelf uploaden;</li>
-<li>verzamelen we geen gegevens van andere TikTok- of Instagram-gebruikers;</li>
-<li>bewaren we toegangssleutels (tokens) beveiligd en delen we ze met niemand.</li>
-</ul>
-<p>Je kunt de toegang van onze app tot een TikTok-account altijd intrekken via de instellingen van TikTok (Beveiliging → Apps en websites beheren).</p>
+<h2>3. Zoeken en boeken via partners</h2>
+<p>De zoekmachine op zoeken.vluchtdeals.com wordt geleverd door onze partner Travelpayouts. Wat je daar invult (zoals bestemming en datums) en de cookies die daar worden geplaatst, verwerkt Travelpayouts volgens zijn eigen privacybeleid. Klik je door naar een luchtvaartmaatschappij, boekingssite of andere aanbieder, dan geldt het privacybeleid van die aanbieder. Sommige links zijn affiliate-links: de aanbieder ziet dan dat je via Vluchtdeals kwam. Wij krijgen geen betaal- of paspoortgegevens van je boeking te zien.</p>
 
-<h2>4. Links naar andere websites</h2>
-<p>Onze posts kunnen links bevatten naar luchtvaartmaatschappijen, boekingssites en vergelijkingssites. Sommige links zijn affiliate-links: als je via zo'n link boekt, kunnen wij een kleine vergoeding ontvangen, zonder extra kosten voor jou. Op die websites geldt het privacybeleid van de betreffende partij.</p>
+<h2>4. Sociale media en onze koppelingen met TikTok en Instagram</h2>
+<p>Volg je ons op Instagram of TikTok, dan gelden de privacyregels van dat platform. Wij zien alleen wat het platform aan accounthouders laat zien, zoals openbare reacties en algemene statistieken.</p>
+<p>We gebruiken de officiële koppelingen van TikTok (Login Kit en Content Posting API) en Meta/Instagram (Instagram Graph API) uitsluitend om onze eigen video's en foto's op onze eigen accounts te publiceren. Via deze koppelingen loggen alleen wij in met ons eigen account, verwerken we alleen de basisgegevens van ons eigen account (zoals accountnaam en account-ID) en de content die we zelf uploaden, verzamelen we geen gegevens van andere gebruikers, en bewaren we toegangssleutels beveiligd. Toegang van onze app tot een TikTok-account kun je altijd intrekken via de instellingen van TikTok (Beveiliging → Apps en websites beheren).</p>
 
-<h2>5. Grondslag en bewaartermijn</h2>
-<p>We verwerken gegevens op basis van ons gerechtvaardigd belang (het beantwoorden van vragen en het publiceren van onze eigen content) of omdat je ons zelf contacteert. We bewaren gegevens niet langer dan nodig voor dat doel.</p>
+<h2>5. Met wie delen we gegevens?</h2>
+<p>We verkopen nooit persoonsgegevens. We delen gegevens alleen met dienstverleners die we nodig hebben om Vluchtdeals te laten werken: Cloudflare (hosting en bezoekcijfers), Brevo (dealmail), Google (e-mail en, alleen met toestemming, Google Analytics), of als de wet ons daartoe verplicht. Met deze partijen zijn afspraken gemaakt over de bescherming van je gegevens. Komen gegevens buiten de Europese Economische Ruimte terecht, dan gebeurt dat met passende waarborgen, zoals het EU-VS Data Privacy Framework of de standaardcontractbepalingen van de Europese Commissie.</p>
 
-<h2>6. Delen met derden</h2>
-<p>We verkopen geen persoonsgegevens. We delen gegevens alleen met dienstverleners die we nodig hebben om Vluchtdeals te laten werken (zoals hosting, e-mail via Google Workspace en de dealmail via Brevo), of als de wet ons daartoe verplicht.</p>
+<h2>6. Jouw rechten</h2>
+<p>Je hebt het recht om je gegevens in te zien, te laten corrigeren of verwijderen, de verwerking te laten beperken, bezwaar te maken en je gegevens over te dragen. Gaf je toestemming, dan kun je die altijd intrekken. Mail hiervoor naar <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>; we reageren binnen 30 dagen. Ben je niet tevreden, dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>.</p>
 
-<h2>7. Jouw rechten</h2>
-<p>Je hebt het recht om je gegevens in te zien, te laten corrigeren of te laten verwijderen, en om bezwaar te maken tegen de verwerking. Stuur hiervoor een mail naar <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>. We reageren binnen 30 dagen. Ben je niet tevreden? Dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+<h2>7. Beveiliging, kinderen en wijzigingen</h2>
+<p>We beveiligen gegevens met passende maatregelen, zoals een versleutelde verbinding (https) en beperkte toegang. Vluchtdeals is niet bedoeld voor kinderen jonger dan 16 jaar. We kunnen deze privacyverklaring aanpassen; de nieuwste versie staat altijd op deze pagina. Over cookies lees je meer in de <a href="/cookies.html">cookieverklaring</a>.</p>
 
-<h2>8. Kinderen</h2>
-<p>Vluchtdeals is niet bedoeld voor kinderen jonger dan 16 jaar. We verwerken niet bewust gegevens van kinderen.</p>
-
-<h2>9. Wijzigingen</h2>
-<p>We kunnen dit privacybeleid aanpassen. De nieuwste versie staat altijd op deze pagina.</p>
-
-<div class="en" id="en">
-<h1>Privacy Policy (English)</h1>
-<p class="meta">Last updated: November 25, 2026</p>
-
-<h2>1. Who we are</h2>
-<p>Vluchtdeals is operated by ProTrading, registered with the Dutch Chamber of Commerce (KvK) under number 95302271, the Netherlands. ProTrading is the data controller for the processing described in this policy. Contact: <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>.</p>
-
-<h2>2. Data we process</h2>
-<p><strong>Website.</strong> This website uses no cookies, no advertising trackers and no analytics. It is hosted by Cloudflare and uses Google Fonts; these providers may temporarily process technical data such as IP addresses to deliver and secure the site.</p>
-<p><strong>Deal newsletter.</strong> If you subscribe to our deal newsletter, we store your email address to send you flight deals once a week. You first receive an email to confirm your subscription (double opt-in). Every email contains an unsubscribe link. We use Brevo (Sendinblue SAS, Paris, France) for this; Brevo records opens and link clicks so we can improve the newsletter. Legal basis: your consent, which you can withdraw at any time.</p>
-<p><strong>Email.</strong> If you email us, we use your email address and message only to reply to you, and keep it no longer than necessary (at most 2 years).</p>
-<p><strong>Social media and Telegram.</strong> When you follow us on Telegram, Instagram or TikTok, that platform's privacy policy applies. We only see what the platform shows to account owners, such as public comments and aggregate statistics. We do not export or sell follower data.</p>
-
-<h2>3. TikTok and Instagram integrations</h2>
-<p>We use TikTok's official Login Kit and Content Posting API, and Meta's Instagram Graph API, solely to publish our own videos and photos to our own accounts. Through these integrations:</p>
-<ul>
-<li>only we (the Vluchtdeals administrator) sign in, with our own account;</li>
-<li>we only process basic information about our own account (such as display name and account ID) and the content we upload ourselves;</li>
-<li>we do not collect any data about other TikTok or Instagram users;</li>
-<li>access tokens are stored securely and never shared.</li>
-</ul>
-<p>Access granted to our app can be revoked at any time in TikTok's settings (Security → Manage apps and websites).</p>
-
-<h2>4. Links to other websites</h2>
-<p>Our posts may link to airlines, booking sites and comparison sites. Some links are affiliate links: if you book through them we may receive a small commission at no extra cost to you. The privacy policy of the respective website applies there.</p>
-
-<h2>5. Legal basis and retention</h2>
-<p>We process data based on our legitimate interest (answering questions and publishing our own content) or because you contacted us. Data is kept no longer than necessary for that purpose.</p>
-
-<h2>6. Sharing</h2>
-<p>We do not sell personal data. We only share data with service providers needed to run Vluchtdeals (such as hosting, Google Workspace email and Brevo for the newsletter), or when required by law.</p>
-
-<h2>7. Your rights</h2>
-<p>Under the GDPR you have the right to access, correct or delete your data and to object to processing. Email <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a>; we respond within 30 days. You may also lodge a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens).</p>
-
-<h2>8. Children</h2>
-<p>Vluchtdeals is not intended for children under 16. We do not knowingly process children's data.</p>
-
-<h2>9. Changes</h2>
-<p>We may update this policy. The latest version is always available on this page.</p>
-</div>
+<h2 id="en">Privacy statement (English)</h2>
+<p>Last updated: 27 November 2026. Vluchtdeals is operated by ProTrading (Dutch Chamber of Commerce no. 95302271), the data controller. Contact: info@vluchtdeals.com.</p>
+<p><strong>Website.</strong> Hosted by Cloudflare, which processes technical data such as IP addresses to deliver and secure the site. We count visits with Cloudflare Web Analytics, which uses no cookies and builds no profiles. Google Analytics is only used after your consent, which you can withdraw at any time via ‘Privacy-instellingen’ at the bottom of every page. Fonts are self-hosted.</p>
+<p><strong>Deal newsletter.</strong> If you subscribe, we store your email address to send you deals once a week via Brevo (Sendinblue SAS, Paris), after double opt-in. Brevo records opens and clicks. Legal basis: consent. You can unsubscribe at any time.</p>
+<p><strong>Search and partners.</strong> The search engine at zoeken.vluchtdeals.com is provided by our partner Travelpayouts, whose privacy policy applies there, as do the policies of airlines and booking sites you visit. Some links are affiliate links.</p>
+<p><strong>TikTok and Instagram integrations.</strong> We use TikTok's Login Kit and Content Posting API and Meta's Instagram Graph API solely to publish our own content to our own accounts. Only we sign in, we only process our own account's basic information and the content we upload, we collect no data about other users, and access tokens are stored securely. You can revoke access in TikTok's settings (Security → Manage apps and websites).</p>
+<p><strong>Your rights.</strong> You may access, correct, delete, restrict or port your data and object to processing. Email info@vluchtdeals.com; we reply within 30 days. You may also complain to the Dutch Data Protection Authority (Autoriteit Persoonsgegevens). We never sell personal data. Not intended for children under 16.</p>
 </main>
-
-<footer><div class="wrap"><p>Vluchtdeals is een initiatief van ProTrading, KvK 95302271. <a href="mailto:info@vluchtdeals.com">info@vluchtdeals.com</a></p><p><a href="/privacy.html">Privacybeleid</a><a href="/voorwaarden.html">Algemene voorwaarden</a></p></div></footer>
+<footer class="vd-foot">
+  <div class="cols"><details><summary>Ontdek</summary><a href="/bestemmingen/">Alle bestemmingen</a><a href="/#deals">Deals van vandaag</a><a href="/#zoeken">Vluchten zoeken</a><a href="/#dealmail">Dealmail</a></details><details><summary>Reis compleet</summary><a href="/#reis">Hotels</a><a href="/#reis">Autohuur</a><a href="/#reis">Activiteiten</a><a href="/#reis">Luchthaventaxi</a><a href="/#reis">eSIM</a></details><details><summary>Ondersteuning</summary><a href="/help.html">Help en veelgestelde vragen</a><a href="/contact.html">Contact</a></details><details><summary>Voorwaarden en privacy</summary><a href="/privacy.html">Privacyverklaring</a><a href="/cookies.html">Cookieverklaring</a><button type="button" data-privacy-settings>Privacy-instellingen</button><a href="/voorwaarden.html">Algemene voorwaarden</a></details><details><summary>Over</summary><a href="/over-ons.html">Over Vluchtdeals</a><a href="/contact.html">Samenwerken</a></details></div>
+  <div class="base">
+    <div class="b1"><a class="brand" href="/" aria-label="Vluchtdeals, naar de homepage">vlucht<span class="tk">deals</span></a><span>Volg ons voor dagelijkse deals</span><div class="soc"><a href="https://www.instagram.com/vluchtdeals/" rel="noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@vluchtdeals_nl" rel="noopener" target="_blank">TikTok</a></div></div>
+    <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
+  </div>
+</footer>
+<script src="/assets/vd.js?v=3" defer></script>
 </body>
 </html>
