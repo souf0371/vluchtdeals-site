@@ -193,6 +193,23 @@
     zoekVraag(u.toString(), f.target === '_blank');
   }, true);
 
+  // ---------- dealmail-formulier boven de voettekst (Brevo, dubbele bevestiging) ----------
+  d.querySelectorAll('.vd-mailform').forEach(function (f) {
+    var m = f.querySelector('input[type=email]'), btn = f.querySelector('button'), msg = f.querySelector('.note');
+    function say(t, c) { msg.textContent = t; msg.className = 'note ' + (c || ''); }
+    m.addEventListener('input', function () { if (msg.className.indexOf('err') > -1) say('Je krijgt eerst een mail om te bevestigen.'); });
+    f.addEventListener('submit', function (e) {
+      var v = (m.value || '').trim();
+      if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { e.preventDefault(); say('Vul een geldig e-mailadres in.', 'err'); m.focus(); return; }
+      if (!window.fetch || !window.FormData) return;
+      e.preventDefault(); btn.disabled = true; btn.textContent = 'Bezig…';
+      fetch(f.action + '?isAjax=1', { method: 'POST', body: new FormData(f) }).then(function (r) { return r.json(); }).then(function (j) {
+        if (j && j.success) { say('Bijna klaar! Check je mail en klik op de link om je inschrijving te bevestigen.', 'ok'); m.value = ''; btn.textContent = 'Aangemeld'; }
+        else { say('Dat lukte niet. Controleer je e-mailadres en probeer het opnieuw.', 'err'); btn.disabled = false; btn.textContent = 'Aanmelden'; }
+      }).catch(function () { f.submit(); });
+    });
+  });
+
   d.querySelectorAll('[data-privacy-settings]').forEach(function (b) {
     b.addEventListener('click', function (e) { e.preventDefault(); openSettings(); });
   });
