@@ -19,6 +19,21 @@
     window.addEventListener('hashchange', function () { menu(false); });
   }
 
+  // ---------- ankerlinks (#deals, #dealmail, ...): netjes scrollen, ook na het dichtklappen van het menu ----------
+  function go(hash, smooth) { var el = hash && d.getElementById(decodeURIComponent(hash.slice(1))); if (el) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' }); return !!el; }
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]'); if (!a || a.target === '_blank') return;
+    var u; try { u = new URL(a.href, location.href); } catch (x) { return; }
+    if (u.origin !== location.origin || u.pathname !== location.pathname || !u.hash || !d.getElementById(decodeURIComponent(u.hash.slice(1)))) return;
+    e.preventDefault(); menu(false);
+    requestAnimationFrame(function () { go(u.hash, true); if (history.pushState) history.pushState(null, '', u.hash); });
+  });
+  if (location.hash) {
+    var y0 = null;
+    window.addEventListener('load', function () { setTimeout(function () { if (go(location.hash)) y0 = window.scrollY; }, 150); });
+    setTimeout(function () { if (y0 !== null && Math.abs(window.scrollY - y0) < 5) go(location.hash); }, 1600);  // na het laden van de deals
+  }
+
   // ---------- datumvelden: 'Kies datum' tonen zolang er niets gekozen is ----------
   if (!/Firefox\//.test(navigator.userAgent)) d.documentElement.classList.add('dph');
   d.querySelectorAll('.dwrap input[type=date]').forEach(function (i) {

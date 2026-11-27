@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0B1028">
 <link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-800.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/vd.css?v=4">
+<link rel="stylesheet" href="/assets/vd.css?v=5">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.55 Inter,system-ui,sans-serif}
@@ -135,7 +135,7 @@ a.rt:hover{border-color:var(--sun)}
 }
 /* telefoon */
 @media (max-width:720px){
- .wrap{padding:0 20px}
+ .wrap{padding-left:20px;padding-right:20px}
  .hero{padding-top:28px;padding-bottom:28px;gap:18px}
  .hero .lead{font-size:17px}
  .sf{padding:14px;border-radius:20px}
@@ -195,10 +195,10 @@ a.rt:hover{border-color:var(--sun)}
       <label><input type="radio" name="reis" value="enkel"><span>Enkele reis</span></label>
     </div>
     <div class="row">
-      <label class="f wide">VAN<input type="text" id="f-from" list="airports" value="Amsterdam Schiphol (AMS)" autocomplete="off" required></label>
-      <label class="f wide">NAAR<input type="text" id="f-to" list="airports" placeholder="Stad of luchthaven" autocomplete="off"></label>
-      <label class="f">HEEN<span class="dwrap"><input type="date" id="f-dep"><span class="ph">Kies datum</span></span></label>
-      <label class="f" id="ret-field">TERUG<span class="dwrap"><input type="date" id="f-ret"><span class="ph">Kies datum</span></span></label>
+      <label class="f wide">VAN<input type="text" id="f-from" aria-label="Vertrek vanaf" list="airports" value="Amsterdam (AMS)" autocomplete="off" required></label>
+      <label class="f wide">NAAR<input type="text" id="f-to" aria-label="Bestemming" list="airports" placeholder="Stad of luchthaven" autocomplete="off"></label>
+      <label class="f">HEEN<span class="dwrap"><input type="date" id="f-dep" aria-label="Heendatum"><span class="ph">Kies datum</span></span></label>
+      <label class="f" id="ret-field">TERUG<span class="dwrap"><input type="date" id="f-ret" aria-label="Terugdatum"><span class="ph">Kies datum</span></span></label>
       <label class="f wide">REIZIGERS<select id="f-pax"><option value="1">1 volwassene</option><option value="2">2 volwassenen</option><option value="3">3 volwassenen</option><option value="4">4 volwassenen</option><option value="5">5 volwassenen</option><option value="6">6 volwassenen</option><option value="7">7 volwassenen</option><option value="8">8 volwassenen</option><option value="9">9 volwassenen</option></select></label>
       <button class="go" type="submit">Zoek vluchten</button>
     </div>
@@ -274,15 +274,15 @@ a.rt:hover{border-color:var(--sun)}
     <div class="b2">© 2026 Vluchtdeals · ProTrading · KvK 95302271<br>Vluchtdeals vergelijkt prijzen; je boekt bij de aanbieder. Voor sommige boekingen ontvangen wij een vergoeding van de aanbieder. Jij betaalt niets extra.</div>
   </div>
 </footer>
-<script src="/assets/vd.js?v=4" defer></script>
+<script src="/assets/vd.js?v=5" defer></script>
 <script>
 (function(){
 var SEARCH='https://zoeken.vluchtdeals.com';
-var AIRPORTS=[['AMS','Amsterdam Schiphol'],['EIN','Eindhoven'],['RTM','Rotterdam'],['GRQ','Groningen'],['MST','Maastricht'],['BRU','Brussel'],['CRL','Charleroi'],['ANR','Antwerpen'],['LGG','Luik'],['DUS','Düsseldorf'],['NRN','Weeze'],['CGN','Keulen'],['DTM','Dortmund'],['BCN','Barcelona'],['MAD','Madrid'],['AGP','Málaga'],['PMI','Palma de Mallorca'],['ALC','Alicante'],['LIS','Lissabon'],['OPO','Porto'],['FAO','Faro'],['FCO','Rome'],['MXP','Milaan'],['VCE','Venetië'],['NAP','Napels'],['ATH','Athene'],['HER','Heraklion (Kreta)'],['IST','Istanbul'],['AYT','Antalya'],['LON','Londen'],['DUB','Dublin'],['PAR','Parijs'],['PRG','Praag'],['BUD','Boedapest'],['KRK','Krakau'],['TFS','Tenerife'],['LPA','Gran Canaria'],['FUE','Fuerteventura'],['ACE','Lanzarote'],['RAK','Marrakech'],['HRG','Hurghada'],['DXB','Dubai'],['NYC','New York'],['CUR','Curaçao'],['BON','Bonaire'],['BKK','Bangkok'],['DPS','Bali'],['TYO','Tokio']];
+var AIRPORTS=[['AMS','Amsterdam'],['EIN','Eindhoven'],['RTM','Rotterdam'],['GRQ','Groningen'],['MST','Maastricht'],['BRU','Brussel'],['CRL','Charleroi'],['ANR','Antwerpen'],['LGG','Luik'],['DUS','Düsseldorf'],['NRN','Weeze'],['CGN','Keulen'],['DTM','Dortmund'],['BCN','Barcelona'],['MAD','Madrid'],['AGP','Málaga'],['PMI','Palma de Mallorca'],['ALC','Alicante'],['LIS','Lissabon'],['OPO','Porto'],['FAO','Faro'],['FCO','Rome'],['MXP','Milaan'],['VCE','Venetië'],['NAP','Napels'],['ATH','Athene'],['HER','Heraklion (Kreta)'],['IST','Istanbul'],['AYT','Antalya'],['LON','Londen'],['DUB','Dublin'],['PAR','Parijs'],['PRG','Praag'],['BUD','Boedapest'],['KRK','Krakau'],['TFS','Tenerife'],['LPA','Gran Canaria'],['FUE','Fuerteventura'],['ACE','Lanzarote'],['RAK','Marrakech'],['HRG','Hurghada'],['DXB','Dubai'],['NYC','New York'],['CUR','Curaçao'],['BON','Bonaire'],['BKK','Bangkok'],['DPS','Bali'],['TYO','Tokio']];
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var $=function(id){return document.getElementById(id)};
 $('airports').innerHTML=AIRPORTS.map(function(a){return '<option value="'+esc(a[1]+' ('+a[0]+')')+'">'}).join('');
-function iata(v){v=(v||'').trim();var m=v.match(/\(([A-Za-z]{3})\)\s*$/);if(m)return m[1].toUpperCase();if(/^[A-Za-z]{3}$/.test(v))return v.toUpperCase();
+function iata(v){v=(v||'').trim();if(!v)return '';var m=v.match(/\(([A-Za-z]{3})\)\s*$/);if(m)return m[1].toUpperCase();if(/^[A-Za-z]{3}$/.test(v))return v.toUpperCase();
   var low=v.toLowerCase();var hit=AIRPORTS.filter(function(a){return a[1].toLowerCase().indexOf(low)===0})[0];return hit?hit[0]:''}
 document.querySelectorAll('input[name=reis]').forEach(function(r){r.onchange=function(){$('ret-field').style.display=this.value==='enkel'?'none':''}});
 var today=new Date().toISOString().slice(0,10);$('f-dep').min=today;$('f-ret').min=today;
@@ -316,7 +316,7 @@ document.querySelectorAll('.quick [data-q]').forEach(function(b){b.onclick=funct
 function dests(){var seen={},items=[];state.deals.forEach(function(d){if(!seen[d.to]){seen[d.to]=1;items.push([d.to,d.city,d.price])}});
   [['BCN','Barcelona'],['LIS','Lissabon'],['ROM','Rome'],['ATH','Athene'],['IST','Istanbul'],['TFS','Tenerife'],['RAK','Marrakech'],['NYC','New York']].forEach(function(x){if(!seen[x[0]]&&items.length<8){seen[x[0]]=1;items.push(x)}});
   $('dgrid').innerHTML=items.slice(0,8).map(function(x){var sl=state.slugs&&state.slugs[x[0]];
-    var href=sl?'/bestemming/'+sl+'/':SEARCH+'/flights/?'+new URLSearchParams({destination_iata:x[0],locale:'nl',currency:'eur'});
+    var dl=state.deals.filter(function(d){return d.to===x[0]})[0];var href=sl?'/bestemming/'+sl+'/':(dl?dealUrl(dl):SEARCH+'/flights/?'+new URLSearchParams({origin_iata:'AMS',destination_iata:x[0],locale:'nl',currency:'eur'}));
     return '<a class="dt" href="'+href+'" style="background-image:url('+img(x[0])+')"><span><b>'+esc(x[1])+'</b><small>'+(x[2]?'deal vanaf €'+x[2]:'bekijk prijzen')+'</small></span></a>'}).join('')}
 function use(data){state.deals=(data&&data.deals)||[];$('n-deals').textContent=state.deals.length||'–';
   if(data&&data.label)$('deals-label').textContent='Deals van '+data.label;render();dests()}
