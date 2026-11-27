@@ -20,7 +20,7 @@
   }
 
   // ---------- ankerlinks (#deals, #dealmail, ...): netjes scrollen, ook na het dichtklappen van het menu ----------
-  function go(hash, smooth) { var el = hash && d.getElementById(decodeURIComponent(hash.slice(1))); if (el) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' }); return !!el; }
+  function go(hash, smooth) { var el = hash && d.getElementById(decodeURIComponent(hash.slice(1))); if (el) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant', block: 'start' }); return !!el; }
   d.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="#"]'); if (!a || a.target === '_blank') return;
     var u; try { u = new URL(a.href, location.href); } catch (x) { return; }
@@ -90,7 +90,7 @@
   function showBanner() {
     banner = d.createElement('div'); banner.className = 'vd-cookie'; banner.setAttribute('role', 'dialog'); banner.setAttribute('aria-label', 'Cookiemelding');
     banner.innerHTML = '<div class="in"><div class="txt"><b class="t">Mogen we cookies gebruiken?</b>' +
-      '<p>Met jouw toestemming meten we hoe de site wordt gebruikt, zodat we hem kunnen verbeteren. Zonder toestemming plaatsen we die cookies niet; de site werkt dan gewoon. Lees de <a href="/cookies.html">cookieverklaring</a>.</p></div>' +
+      '<p>Met jouw toestemming meten we hoe de site wordt gebruikt, zodat we hem kunnen verbeteren. Zonder toestemming plaatsen we die cookies niet; de site werkt dan gewoon. Lees de <a href="/cookies">cookieverklaring</a>.</p></div>' +
       '<div class="btns"><button type="button" class="vd-btn" data-c="no">Weigeren</button>' +
       '<button type="button" class="vd-btn set" data-c="set">Instellingen</button>' +
       '<button type="button" class="vd-btn dark" data-c="yes">Accepteren</button></div></div>';
@@ -110,7 +110,7 @@
       '<div class="row"><div><b>Noodzakelijk</b><p>Nodig om de site te laten werken en je keuze te onthouden. Altijd aan.</p></div><label class="vd-sw"><input type="checkbox" checked disabled aria-label="Noodzakelijk, altijd aan"><span></span></label></div>' +
       '<div class="row"><div><b>Statistieken</b><p>Meten hoe bezoekers de site gebruiken (Google Analytics), zodat we hem kunnen verbeteren.</p></div><label class="vd-sw"><input type="checkbox" id="vd-c-stats" aria-label="Statistieken"' + (cur.stats ? ' checked' : '') + '><span></span></label></div>' +
       '<div class="row"><div><b>Marketing</b><p>Meten of onze advertenties werken. Nu niet in gebruik.</p></div><label class="vd-sw"><input type="checkbox" id="vd-c-ads" aria-label="Marketing"' + (cur.ads ? ' checked' : '') + '><span></span></label></div>' +
-      '<p style="margin:14px 0 0;font-size:14px;color:#4A5275">Bezoekers tellen we ook zonder cookies (Cloudflare Web Analytics). Meer in de <a href="/cookies.html" style="color:#0B4FA8">cookieverklaring</a>.</p>' +
+      '<p style="margin:14px 0 0;font-size:14px;color:#4A5275">Bezoekers tellen we ook zonder cookies (Cloudflare Web Analytics). Meer in de <a href="/cookies" style="color:#0B4FA8">cookieverklaring</a>.</p>' +
       '<div class="btns"><button type="button" class="vd-btn" data-m="no">Alles weigeren</button><button type="button" class="vd-btn" data-m="save">Keuze opslaan</button><button type="button" class="vd-btn dark" data-m="yes">Alles accepteren</button></div></div>';
     function close() { m.remove(); d.removeEventListener('keydown', esc); }
     function esc(e) { if (e.key === 'Escape') close(); }
