@@ -25,7 +25,8 @@
 .vd-head .right a.l{color:var(--soft);text-decoration:none}
 .vd-head .right a.l:hover,.vd-head .right a.l[aria-current]{color:var(--sun)}
 .vd-soc{display:flex;gap:6px}
-.vd-soc a{color:var(--soft);text-decoration:none;font:600 13px Inter,sans-serif;border:1px solid var(--line2);border-radius:999px;padding:6px 12px}
+.vd-soc a{color:var(--soft);text-decoration:none;border:1px solid var(--line2);border-radius:999px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center}
+.vd-soc a:focus-visible,.vd-foot .soc a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .vd-soc a:hover{color:var(--ink);background:var(--sun);border-color:var(--sun)}
 .vd-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--sun);color:var(--ink)!important;font:700 15px Inter,sans-serif;text-decoration:none}
 .vd-cta:hover{background:var(--sun2)}
@@ -39,6 +40,7 @@
 .vd-panel{display:none;border-top:1px solid var(--line);padding:4px 20px 14px;max-height:calc(100vh - 72px);overflow-y:auto}
 .vd-panel a{display:block;padding:12px 0;color:var(--paper);text-decoration:none;font:600 17px Inter,sans-serif;border-bottom:1px solid var(--line)}
 .vd-panel.open{display:block}
+.vd-panel a.soc{display:flex;align-items:center;gap:10px}
 
 /* voettekst */
 .vd-foot{border-top:1px solid var(--line);font:400 14px/1.6 Inter,sans-serif;color:var(--mute);margin-top:0}
@@ -51,7 +53,7 @@
 .vd-foot .base .b1{display:flex;flex-direction:column;gap:12px}
 .vd-foot .base .b2{max-width:560px;text-align:right;font-size:12.5px}
 .vd-foot .soc{display:flex;flex-wrap:wrap;gap:8px}
-.vd-foot .soc a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line2);color:var(--paper);text-decoration:none;font:600 14px Inter,sans-serif}
+.vd-foot .soc a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line2);color:var(--paper);text-decoration:none;font:600 14px Inter,sans-serif}
 .vd-foot .soc a:hover{background:var(--sun);color:var(--ink);border-color:var(--sun)}
 .vd-foot .brand{font-size:22px}
 .vd-foot .brand .tk{border-radius:4px;padding:1px 8px 3px 7px}
